@@ -3,11 +3,11 @@ package fast;
 import java.io.File;
 
 public class Del {
-    private static final String PicDirPath = "./rsc/pic/";
-    private static final String LogDirPath = "./rsc/log/";
+    private static final String PicDirPath = "./resources/pic/";
+    private static final String LogDirPath = "./resources/log/";
 
     public static void allPicDelete() {
-        //delete all files in the ./rsc/ folder
+        //delete all files in the ./resources/ folder
         File[] files = new File(PicDirPath).listFiles();
         if(files != null){
             for(File file : files){
@@ -31,7 +31,7 @@ public class Del {
     }
 
     public static void allLogDelete() {
-        //delete all files in the ./rsc/ folder
+        //delete all files in the ./resources/ folder
         File[] files = new File(LogDirPath).listFiles();
         if(files != null){
             for(File file : files){

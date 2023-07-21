@@ -8,4 +8,11 @@ public class FileName {
                 .replaceAll("\\\\", "-")
                 .replaceAll(":" , "-");
     }
+    public static String translate(int n){
+        return String.valueOf(n)
+                .replaceAll(" ", "-")
+                .replaceAll(",", "+")
+                .replaceAll("\\\\", "-")
+                .replaceAll(":" , "-");
+    }
 }

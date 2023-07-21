@@ -22,25 +22,25 @@ public class Driver extends Thread{
     private static final String Path = "./resources/pic/";
     private static final int maxPage = 100;
     public static int maxImage = 10;
-    private static int imageCounter = 0;
+    public static int imageCounter = 0;
+
+    private static boolean isSuccess = false;
 
     private static final int sleepTime = 3;
     @BooleanFlag
     private static boolean blockNSFW  = false;
     @BooleanFlag
-    private static boolean isSuccess = false;
-    @BooleanFlag
     private static boolean canSaveVideo = false;
     @BooleanFlag
     private static boolean isVideo = false;
-    @BooleanFlag
     private static final boolean experiment = true;
-    @BooleanFlag
     private static boolean HQ = true;
 
     private static int totalImage = 0;
     public static String tag = "";
     public static String url ;
+
+    public static int progress = 0;
 
 
     public void run() {
@@ -138,7 +138,9 @@ public class Driver extends Thread{
                             System.out.println("No Original Version");
                         }
                     }
-
+                    //idと作成者の情報を取得
+                    WebElement post_id = driver.findElement(By.id("post-info-id"));
+                    int id = Integer.parseInt(post_id.getText().split(":")[1].trim());
                     //レーティングをチェック
                     WebElement preview = driver.findElement(By.id("post-info-rating"));
                     //レーティングの種類を獲得
@@ -154,10 +156,10 @@ public class Driver extends Thread{
                     //blockNSFW
                     if(rating.equals("Explicit") && blockNSFW){
                         System.out.println("Blocked");
-                        Log.write(totalImage + FileName.translate(tag)  + ext(imageUrl) + " ("  + rating  +") : " + Log.getTime() + " : Blocked");
+                        Log.write(totalImage +"." + id  + ext(imageUrl) + " ("  + rating  +") : " + Log.getTime() + " : Blocked");
                     }else{
                         if(canSaveVideo){
-                            String fileName = totalImage + FileName.translate(tag) + ext(imageUrl);
+                            String fileName = totalImage +"." + id + ext(imageUrl);
                             if(isVideo){
                                 saveVideo(imageUrl, fileName);
                                 Log.write(fileName + " ("  + rating  +") : " + Log.getTime() + " : " + linkUrl);
@@ -170,13 +172,15 @@ public class Driver extends Thread{
                             }
                         }else {
                             if(!isVideo){
-                                String fileName = totalImage + FileName.translate(tag) + ext(imageUrl);
+                                String fileName = totalImage +"." + id + ext(imageUrl);
                                 Log.write(fileName + " ("  + rating  +") : " + Log.getTime() + " : " + linkUrl);
                                 saveImage(imageUrl,fileName);
                                 totalImage ++;
                             }
                         }
                     }
+
+                    progress = imageCounter * 100 / maxImage;
 
                     //前のページに戻る
                     driver.navigate().back();
@@ -190,6 +194,7 @@ public class Driver extends Thread{
             wait(driver,250);
 
             try {
+                //次のページへ移行
                 WebElement nextPageBtn = driver.findElement(By.className("paginator-next"));
                 nextPageBtn.click();
             }catch (Exception e){

@@ -13,6 +13,7 @@ public class Data {
         this.posts = posts;
         this.category = category;
     }
+
     public Data(int id , String name) {
         this.id = id;
         this.tag = name;

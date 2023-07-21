@@ -22,11 +22,11 @@ public class Core extends JPanel {
     Font font;
     //検索ワードを設定
     public static String word;
-    private static int imgCount = 0;
+    public static int imgCount = 0;
 
     final int corner = 6;
     static boolean isRunning = true;
-    private static double dt = 0.01;
+    public static double dt = 0.01;
     private long time = 0;
     public static boolean canMove = false;
     private final int typeOfJson = 4;
@@ -42,9 +42,10 @@ public class Core extends JPanel {
     String[] status = {"Success", "Fail", "Error"};
     Listener ml = new Listener();
     Random random = new Random();
+    Draw draw ;
 
     Core(){
-
+        draw = new Draw(getWidth(),getHeight());
         for(int i = 0 ; i < lb.length ; i ++ ){
             lb[i] = new JLabel();
         }
@@ -72,7 +73,6 @@ public class Core extends JPanel {
                 //driver run
                 Log.l ++;
                 driver.start();
-//                driver.wait();
                 //TODO
                 //非同期処理が終わったら以下の表示する
                 if(Driver.getIsSuccess()){
@@ -244,7 +244,7 @@ public class Core extends JPanel {
 
         /*
           Delete Button
-          Pushed -> Delete all files generated in ./rsc/Log and ./rsc/Pic
+          Pushed -> Delete all files generated in ./resources/Log and ./resources/Pic
          */
         btn[2] = new JButton();
         btn[2].setFont(font);
@@ -317,7 +317,7 @@ public class Core extends JPanel {
         btn[5].setFocusPainted(false);
         btn[5].setBackground(Color.BLACK);
         btn[5].addActionListener(e -> {
-            //open directory ./rsc/pic
+            //open directory ./resources/pic
             Predict predict = new Predict(tf[0].getText());
             lb[7].setText(predict.text);
         });
@@ -332,9 +332,9 @@ public class Core extends JPanel {
         btn[6].setFocusPainted(false);
         btn[6].setBackground(Color.BLACK);
         btn[6].addActionListener(e -> {
-            //open directory ./rsc/pic
+            //open directory ./resources/pic
             try {
-                Desktop.getDesktop().open(new File("./rsc/pic"));
+                Desktop.getDesktop().open(new File("./resources/pic"));
             } catch (IOException ex) {
                 Log.error(ex.getMessage());
             }
@@ -378,13 +378,18 @@ public class Core extends JPanel {
     private void draw(Graphics g){
         g.setColor(Color.white);
 
+        draw.setW_H(getWidth(),getHeight());
+
+        draw.progressBar(g, 0,getHeight() - 20 , getWidth() , 20);
+
+
         int rad = 100;
         for (int i = 0 ; i < 6 ; i ++){
             double x = rad * Math.cos(i * Math.PI / 3 );
             double y = rad * Math.sin(i * Math.PI / 3 );
-            drawHexagon(g, x, y , i);
+            draw.hexagon(g, x, y , i);
         }
-//        drawHexagon(g,0,0,-1);
+        draw.hexagon(g,0,0,-1);
 
         g.setColor(Color.red);
 
@@ -408,11 +413,11 @@ public class Core extends JPanel {
             }else{
                 g.setColor(new Color(255, 100, 255));
             }
-            drawTitle(g,x ,y);
+            draw.title(g,x ,y);
             g.drawString("debug" , 5,5);
         }else{
             g.setColor(Color.GREEN);
-            drawTitle(g,650,20);
+            draw.title(g,x ,y);
             rainbowColor(g);
             g.drawString("elapsed time" + (System.currentTimeMillis()/100 - Main.st/100), 5,5);
         }
@@ -437,41 +442,6 @@ public class Core extends JPanel {
         }
     }
 
-    private void drawTitle(Graphics g, int nx ,int ny){
-
-        font = new Font("Courier New", Font.PLAIN, 10);
-        g.setFont(font);
-        g.drawString("   _____                             ", nx,ny + 10);
-        g.drawString("  / ___/______________ _____  ___       ", nx,ny + 10 * 2);
-        g.drawString("  \\__ \\/ ___/ ___/ __ `/ __ \\/ _ \\    ", nx,ny + 10 * 3);
-        g.drawString(" ___/ / /__/ /  / /_/ / /_/ /  __/", nx,ny + 10 * 4);
-        g.drawString("/____/\\___/_/   \\__,_/ .___/\\___/             _____", nx,ny + 10 * 5);
-        g.drawString("   / / / /__  _  ___/_/ _____ _____  ____    |__  /", nx,ny + 10 * 6);
-        g.drawString("  / /_/ / _ \\| |/_/ __ `/ __ `/ __ \\/ __ \\    /_ <", nx,ny + 10 * 7);
-        g.drawString(" / __  /  __/>  </ /_/ / /_/ / /_/ / / / /  ___/ /" , nx,ny + 10 * 8);
-        g.drawString("/_/ /_/\\___/_/|_|\\__,_/\\__, /\\____/_/ /_/  /____/", nx,ny + 10 * 9);
-        g.drawString("                      /____/", nx,ny + 10 * 10);
-    }
-    private void drawHexagon(Graphics g , double dx , double dy, int type){
-
-        switch (type % 3) {
-            case 0 -> g.setColor(new Color(255, 255, 100));
-            case 1 -> g.setColor(new Color(100, 255, 255));
-            case 2 -> g.setColor(new Color(255, 100, 255));
-            default -> g.setColor(new Color(255, 255, 255));
-        }
-
-        int[] x = new int[corner];
-        int[] y = new int[corner];
-
-        for(int i = 0; i < corner; i++){
-
-            double sita = 2 * Math.PI;
-            x[i] = (int) (100 * Math.cos(i * sita / corner + dt) + dx + getWidth()/2);
-            y[i] = (int) (100 * Math.sin(i * sita / corner + dt) + dy + getHeight()/2);
-        }
-        g.drawPolygon(x, y, corner);
-    }
     private void sleep(){
         try {
             Thread.sleep(10);
