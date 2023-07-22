@@ -1,6 +1,5 @@
 package driver;
 
-import fast.FileName;
 import fast.Log;
 import fast.Tag;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -17,14 +16,16 @@ import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Driver extends Thread{
+
     private static final String Path = "./resources/pic/";
     private static final int maxPage = 100;
     public static int maxImage = 10;
     public static int imageCounter = 0;
 
-    private static boolean isSuccess = false;
+    private static final AtomicBoolean isSuccess = new AtomicBoolean(false);
 
     private static final int sleepTime = 3;
     @BooleanFlag
@@ -33,7 +34,7 @@ public class Driver extends Thread{
     private static boolean canSaveVideo = false;
     @BooleanFlag
     private static boolean isVideo = false;
-    private static final boolean experiment = true;
+    private static final boolean experiment = false;
     private static boolean HQ = true;
 
     private static int totalImage = 0;
@@ -46,7 +47,7 @@ public class Driver extends Thread{
     public void run() {
 
         imageCounter = 0;
-        isSuccess = false;
+        isSuccess.set(false);
 
         System.out.println(Tag.translate(tag));
 
@@ -216,7 +217,7 @@ public class Driver extends Thread{
             driver.quit();
         }
 
-        isSuccess = maxImage == imageCounter;
+        isSuccess.set(maxImage == imageCounter);
 
         System.out.println("MaX Picture -> " + maxImage);
         System.out.println("GeT Picture -> " + imageCounter);
@@ -274,10 +275,10 @@ public class Driver extends Thread{
             in.close();
             fos.close();
         }catch (IOException e){
-            Log.error(e.getMessage());
+            Log.error(e);
             e.printStackTrace();
         } catch (InterruptedException e) {
-            Log.error(e.getMessage());
+            Log.error(e);
             throw new RuntimeException(e);
         }
         imageCounter ++;
@@ -306,10 +307,10 @@ public class Driver extends Thread{
             in.close();
             fos.close();
         }catch (IOException e){
-            Log.error(e.getMessage());
+            Log.error(e);
             e.printStackTrace();
         } catch (InterruptedException e) {
-            Log.error(e.getMessage());
+            Log.error(e);
             throw new RuntimeException(e);
         }
         imageCounter ++;
@@ -326,7 +327,7 @@ public class Driver extends Thread{
     }
 
     public static boolean getIsSuccess() {
-        return isSuccess;
+        return isSuccess.get();
     }
 
     public static void blockExplicit(boolean blockNSFW) {

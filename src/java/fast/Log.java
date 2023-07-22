@@ -39,6 +39,34 @@ public class Log{
         }
     }
 
+    public static void error(Exception e) {
+        File file = new File(DirPath + "error-log"  + ".log");
+        try {
+            //追試可否
+            FileWriter fw = new FileWriter(file , true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            //stack-trace
+            //get method info
+            bw.newLine();
+            bw.write(getTime() +":"+ e.getStackTrace()[0].getClassName());
+            bw.newLine();
+            //simple class name
+            bw.write(getTime() +":"+ e.getStackTrace()[0].getMethodName());
+            bw.newLine();
+            //get line number
+            bw.write(getTime() +":"+ e.getStackTrace()[0].getLineNumber());
+            //get message
+            bw.newLine();
+
+            bw.write("#  " + getTime() +":"+ e.getMessage());
+            bw.newLine();
+            bw.close();
+            fw.close();
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
     public static String getTime() {
         //get mm/dd/yyyy hh:mm:ss
         String time = LocalDateTime.now().toString().replace(":", "-");
