@@ -1,6 +1,7 @@
 package crawler;
 
 
+import data.Properties;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,15 +12,18 @@ import java.net.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * HTTP リクエストからhtmlをgetし、imgのソースURLから
  * 画像をゲットする
  */
-public class Downloader extends Thread {
+public final class Downloader  {
 //    private String url = "https://hijiribe.donmai.us/posts/6483817?q=mostima_%28arknights%29";
-    private final static String fileDir = "./resources/";
+    private final static String fileDir = Properties.PIC_DIR;
+    private final static String ext = Properties.FILE_FORMAT;
     private boolean saveTag = false;
+    public static final AtomicInteger count = new AtomicInteger();
     private URL url;
 
     public Downloader(String srcURL) {
@@ -34,8 +38,6 @@ public class Downloader extends Thread {
 
 
     public void run() {
-
-        long startTime = System.currentTimeMillis();
         try {
             // HTTP URL Connection
             HttpURLConnection openConnection =
@@ -51,7 +53,7 @@ public class Downloader extends Thread {
             }
 
             String contentType = openConnection.getContentType();
-            System.out.println("Content-Type: " + contentType);
+//            System.out.println("Content-Type: " + contentType);
 
             // Input Stream
             DataInputStream dataInStream
@@ -69,9 +71,9 @@ public class Downloader extends Thread {
             reader.close();
 //            System.out.println(htmlContent.toString());
             Document document = Jsoup.parse(htmlContent.toString());
-            System.out.println(document.title());
+//            System.out.println(document.title());
 
-            if(saveTag){
+            if(Properties.TAG2JSON){
                 tagList(document);
             }
 
@@ -80,19 +82,16 @@ public class Downloader extends Thread {
 
             if (imageElement != null) {
                 String imageUrl = imageElement.attr("src");
-                System.out.println("Image URL: " + imageUrl);
+//                System.out.println("Image URL: " + imageUrl);
 
                 String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
                 // remove fileformat extension
                 fileName = fileName.substring(0, fileName.lastIndexOf("."));
-                
-                System.out.println(fileName);
                 String fileFormat = fileFormat(imageUrl);
-                System.out.println(fileFormat);
                 String filepath = fileDir + fileName + fileFormat;
                 // 画像をダウンロードして保存する
                 downloadImage(imageUrl, filepath);
-                System.out.println("Image downloaded successfully.");
+                count.set(count.get()+1);
             } else {
                 System.out.println("Image not found.");
             }
@@ -100,11 +99,9 @@ public class Downloader extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+//            System.out.println(e.getMessage());
             e.printStackTrace();
         }
-        long endTime = System.currentTimeMillis();
-        System.out.println("Download time : " + (endTime - startTime) + "ms");
     }
     //image downloader
     private static void downloadImage(String imageUrl, String fileName) throws IOException {
@@ -134,7 +131,7 @@ public class Downloader extends Thread {
         else if(ex.endsWith("mp4")) return ".mp4";
         else if(ex.endsWith("mov")) return ".mov";
         else if(ex.endsWith("wmv")) return ".wmv";
-        else return ".png";
+        else return ext;
         
     }
 
