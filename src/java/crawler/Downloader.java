@@ -4,31 +4,40 @@ package crawler;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * HTTP リクエストからhtmlをgetし、imgのソースURLから
  * 画像をゲットする
  */
-public class Downloader {
+public class Downloader extends Thread {
 //    private String url = "https://hijiribe.donmai.us/posts/6483817?q=mostima_%28arknights%29";
-    private static String saveDir = "./resources/pic/";
-    URL url;
-    public Downloader(String src) {
-        try{
-            this.url = new URL(src);
-        }catch (MalformedURLException e){
-            e.printStackTrace();
-        }
-        System.out.println("Download image : " + src);
+    private final static String fileDir = "./resources/";
+    private boolean saveTag = false;
+    private URL url;
 
+    public Downloader(String srcURL) {
+        try{
+            this.url = new URL(srcURL);
+        }catch (MalformedURLException e) {
+            e.printStackTrace();
+        }finally {
+            System.out.println("Download image : " + srcURL);
+        }
     }
+
+
     public void run() {
+
+        long startTime = System.currentTimeMillis();
         try {
+            // HTTP URL Connection
             HttpURLConnection openConnection =
                     (HttpURLConnection) url.openConnection();
             openConnection.setAllowUserInteraction(false);
@@ -53,15 +62,18 @@ public class Downloader {
             BufferedReader reader = new BufferedReader(new InputStreamReader(openConnection.getInputStream()));
             StringBuilder htmlContent = new StringBuilder();
             String line;
-            //1行ずつhtmlを読み取る
+            //Read html one line at a time
             while ((line = reader.readLine()) != null) {
                 htmlContent.append(line);
             }
             reader.close();
 //            System.out.println(htmlContent.toString());
-
             Document document = Jsoup.parse(htmlContent.toString());
             System.out.println(document.title());
+
+            if(saveTag){
+                tagList(document);
+            }
 
             //get #image img element
             Element imageElement = document.getElementById("image");
@@ -70,8 +82,16 @@ public class Downloader {
                 String imageUrl = imageElement.attr("src");
                 System.out.println("Image URL: " + imageUrl);
 
+                String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
+                // remove fileformat extension
+                fileName = fileName.substring(0, fileName.lastIndexOf("."));
+                
+                System.out.println(fileName);
+                String fileFormat = fileFormat(imageUrl);
+                System.out.println(fileFormat);
+                String filepath = fileDir + fileName + fileFormat;
                 // 画像をダウンロードして保存する
-                downloadImage(imageUrl, "downloaded_image.jpg");
+                downloadImage(imageUrl, filepath);
                 System.out.println("Image downloaded successfully.");
             } else {
                 System.out.println("Image not found.");
@@ -83,8 +103,10 @@ public class Downloader {
             System.out.println(e.getMessage());
             e.printStackTrace();
         }
+        long endTime = System.currentTimeMillis();
+        System.out.println("Download time : " + (endTime - startTime) + "ms");
     }
-
+    //image downloader
     private static void downloadImage(String imageUrl, String fileName) throws IOException {
         URL url = new URL(imageUrl);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -102,7 +124,38 @@ public class Downloader {
 
         outputStream.close();
         inputStream.close();
+
+        connection.disconnect();
+    }
+    // set fileFormat
+    private static String fileFormat(String ex){
+        if     (ex.endsWith("gif")) return ".gif";
+        else if(ex.endsWith("webm"))return ".webm";
+        else if(ex.endsWith("mp4")) return ".mp4";
+        else if(ex.endsWith("mov")) return ".mov";
+        else if(ex.endsWith("wmv")) return ".wmv";
+        else return ".png";
+        
     }
 
+    private List<String> generalTagList = new ArrayList<>();
+    private List<String> characterTagList = new ArrayList<>();
+    private List<String> sd = new LinkedList<>();
 
+    private void tagList (Document doc){
+        Elements elements;
+        Elements generalElements = doc.getElementsByClass("tag-type-0");
+        Elements characterElements = doc.getElementsByClass("tag-type-4");
+
+        for(Element general : generalElements){
+            var e = general.getElementsByClass("search-tag");
+            generalTagList.add(e.text());
+        }
+
+        for (Element character : characterElements){
+            var e = character.getElementsByClass("search-tag");
+            characterTagList.add(e.text());
+        }
+
+    }
 }
