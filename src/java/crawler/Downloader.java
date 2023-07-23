@@ -31,13 +31,13 @@ public final class Downloader  {
         }catch (MalformedURLException e) {
             e.printStackTrace();
         }finally {
-            System.out.println("Download image : " + srcURL);
+            System.out.println(count.get() + " : Download image : " + srcURL);
         }
     }
 
     public void run() {
-        Yelan.isRunning.set(count.get() < Yelan.MAX_IMG_CNT);
-        if(Yelan.isRunning.get()){
+        OpenSRC.isRunning.set(count.get() < OpenSRC.MAX_IMG_CNT);
+        if(OpenSRC.isRunning.get()){
             try {
                 // HTTP URL Connection
                 HttpURLConnection openConnection =
@@ -110,19 +110,15 @@ public final class Downloader  {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.connect();
-
         InputStream inputStream = connection.getInputStream();
         OutputStream outputStream = new FileOutputStream(fileName);
-
         byte[] buffer = new byte[4096];
         int bytesRead;
         while ((bytesRead = inputStream.read(buffer)) != -1) {
             outputStream.write(buffer, 0, bytesRead);
         }
-
         outputStream.close();
         inputStream.close();
-
         connection.disconnect();
     }
     // set fileFormat

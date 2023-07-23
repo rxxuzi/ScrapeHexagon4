@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Eula {
+public class UserInterface {
     public static final ArrayList<Data> dataList = new ArrayList<>();
     private static final String Path = "./data/";
     public static String file = "sample.json";

@@ -1,7 +1,7 @@
+package http
+
 import java.io._
-import java.net.HttpURLConnection
-import java.net.URL
-import scala.math.BigDecimal.RoundingMode
+import java.net.{HttpURLConnection, URL}
 
 
 object OpenHTML {

@@ -29,8 +29,8 @@ public class GlobalProperties {
 
             Properties props = GlobalProperties.load("./config/SETTING.ini");
             var k = props.keySet();
-            System.out.println(k);
-            System.out.println(props.get("CustomSetting").toString() + "cs");
+//            System.out.println(k);
+//            System.out.println(props.get("CustomSetting").toString() + "cs");
             CUSTOM = Boolean.parseBoolean(props.get("CustomSetting").toString());
             if(CUSTOM){
                 MAKE_BIN = Boolean.parseBoolean(props.get("4Bin").toString());
@@ -60,13 +60,6 @@ public class GlobalProperties {
         }else{
             DOMAIN = "https://safebooru.donmai.us/";
         }
-
-        System.out.println(CUSTOM);
-        System.out.println(MAKE_BIN);
-        System.out.println(TAG2JSON);
-        System.out.println(PIC_DIR);
-        System.out.println(JSON_DIR);
-        System.out.println(FILE_FORMAT);
     }
 
     /**

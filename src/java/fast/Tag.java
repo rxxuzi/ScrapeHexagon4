@@ -2,9 +2,9 @@ package fast;
 
 public class Tag {
 
-    public static String translate(String url){
+    public static String translate(String tagName){
 
-        return url.replaceAll(" ", "_")
+        return tagName.replaceAll(" ", "_")
                 // "," -> "+"
                 .replaceAll(",", "+")
                 // "(" -> "%28"

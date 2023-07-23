@@ -1,4 +1,6 @@
-import java.io.{FileOutputStream, InputStream, OutputStream}
+package http
+
+import java.io.FileOutputStream
 import java.net.{HttpURLConnection, URL}
 
 trait Online {

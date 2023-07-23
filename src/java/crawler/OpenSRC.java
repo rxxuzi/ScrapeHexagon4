@@ -1,5 +1,6 @@
 package crawler;
 
+import fast.Tag;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -13,20 +14,27 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.IntStream;
 
-public final class Yelan {
+public final class OpenSRC {
 
     public final static String http = GlobalProperties.DOMAIN;
     public final static String BASIC_URL = GlobalProperties.DOMAIN+"posts?page=";
-    public static int MAX_IMG_CNT = Math.min(Main.IMG , GlobalProperties.MAX_IMG_CNT);
+    public final static int MAX_IMG_CNT = Math.min(Main.IMG , GlobalProperties.MAX_IMG_CNT);
     public static int PAGE_COUNT = 1;
     private static final String BASIC_TAG = "&tags=";
-    private static String TAG = "exusiai_%28arknights%29+pantyhose";
     public static final AtomicBoolean isRunning = new AtomicBoolean(true);
+    private String TAG = "exusiai_%28arknights%29+pantyhose";
+
+    public String getTag() {
+        return TAG;
+    }
+
+    public void setTag(String TAGNAME) {
+        this.TAG = Tag.translate(TAGNAME);
+    }
     public void run() {
         do {
             sendPage(BASIC_URL + PAGE_COUNT + BASIC_TAG  + TAG);
             PAGE_COUNT++;
-            System.out.println("pages : "+PAGE_COUNT);
         }while (isRunning.get());
         System.out.println("Last finish");
     }
@@ -86,7 +94,7 @@ public final class Yelan {
                     if (Downloader.count.get() < MAX_IMG_CNT ) {
                         downloader.set(new Downloader(link));
                         downloader.get().run();
-                        System.out.println("Downloader count : " + Downloader.count.get());
+//                        System.out.println("MediaDownloader count : " + MediaDownloader.count.get());
                     }
                 });
             }else {
@@ -98,7 +106,7 @@ public final class Yelan {
                     if (Downloader.count.get() < MAX_IMG_CNT ) {
                         downloader.set(new Downloader(link));
                         downloader.get().run();
-                        System.out.println("Downloader count : " + Downloader.count.get());
+//                        System.out.println("MediaDownloader count : " + MediaDownloader.count.get());
                     }
                 });
             }
