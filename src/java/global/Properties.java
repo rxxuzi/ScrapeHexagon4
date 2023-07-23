@@ -1,4 +1,4 @@
-package data;
+package global;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
