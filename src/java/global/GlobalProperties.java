@@ -4,8 +4,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.util.Properties;
 
-public class Properties {
+public class GlobalProperties {
     /**
      * config内のconfig/SETTING.iniを読み込む
      * @throws IOException - 読み込み失敗
@@ -13,26 +14,32 @@ public class Properties {
     public static boolean CUSTOM = false;
     public static boolean MAKE_BIN ;
     public static boolean TAG2JSON = false;
+    public static boolean NSFW = false;
     public static String PIC_DIR = "./output/pics/";
     public static String JSON_DIR = "./output/json/";
     public static String FILE_FORMAT = ".png";
+    public static boolean DEBUG = false;
+    public static String DOMAIN ;
+    public static int MAX_IMG_CNT = 10;
 //    public static void main(String[] args) throws IOException {
 
-    public Properties() {
+    public GlobalProperties() {
+
         try{
 
-            java.util.Properties props = Properties.load("./config/SETTING.ini");
+            Properties props = GlobalProperties.load("./config/SETTING.ini");
             var k = props.keySet();
             System.out.println(k);
-            String bool = "true";
             System.out.println(props.get("CustomSetting").toString() + "cs");
             CUSTOM = Boolean.parseBoolean(props.get("CustomSetting").toString());
             if(CUSTOM){
                 MAKE_BIN = Boolean.parseBoolean(props.get("4Bin").toString());
                 TAG2JSON = Boolean.parseBoolean(props.get("Tag2Json").toString());
+                NSFW = Boolean.parseBoolean(props.get("NSFW").toString());
                 PIC_DIR = props.get("PicDir").toString();
                 JSON_DIR = props.get("JsonDir").toString();
                 FILE_FORMAT = props.get("FileFormat").toString();
+                MAX_IMG_CNT = Integer.parseInt(props.get("MaxPic").toString());
             }
         }catch (IOException | NullPointerException e){
             e.printStackTrace();
@@ -46,6 +53,12 @@ public class Properties {
         f  = new File(JSON_DIR);
         if(!f.exists()){
             f.mkdirs();
+        }
+
+        if(NSFW){
+            DOMAIN = "https://danbooru.donmai.us/";
+        }else{
+            DOMAIN = "https://safebooru.donmai.us/";
         }
 
         System.out.println(CUSTOM);

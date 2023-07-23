@@ -1,6 +1,5 @@
 package crawler;
 
-import global.Properties;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -9,17 +8,32 @@ import java.io.DataInputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import global.GlobalProperties;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.IntStream;
 
 public final class Yelan {
-    public static String http = "https://safebooru.donmai.us/";
-    public static int MAX_COUNT = 1000;
-    public static void main(String[] args) {
-        Properties properties = new Properties();
-        long  startTime = System.currentTimeMillis();
+
+    public final static String http = GlobalProperties.DOMAIN;
+    public final static String BASIC_URL = GlobalProperties.DOMAIN+"posts?page=";
+    public static int MAX_IMG_CNT = Math.min(Main.IMG , GlobalProperties.MAX_IMG_CNT);
+    public static int PAGE_COUNT = 1;
+    private static final String BASIC_TAG = "&tags=";
+    private static String TAG = "exusiai_%28arknights%29+pantyhose";
+    public static final AtomicBoolean isRunning = new AtomicBoolean(true);
+    public void run() {
+        do {
+            sendPage(BASIC_URL + PAGE_COUNT + BASIC_TAG  + TAG);
+            PAGE_COUNT++;
+            System.out.println("pages : "+PAGE_COUNT);
+        }while (isRunning.get());
+        System.out.println("Last finish");
+    }
+
+    public void sendPage(String page){
         try{
-            URL url = new URL("https://safebooru.donmai.us/posts?page=1&tags=w_%28arknights%29");
+            URL url = new URL(page);
             // HTTP URL Connection
             HttpURLConnection openConnection =
                     (HttpURLConnection) url.openConnection();
@@ -56,28 +70,47 @@ public final class Yelan {
             //get #posts img element
             Elements posts = document.getElementsByClass("post-preview-link");
 
-//            for(var post : posts){
-//                var p = post.attr("href");
-//                String link = http + p ;
-//                Downloader dl = new Downloader(link);
-//                dl.run();
-//            }
             AtomicReference<Downloader> downloader = new AtomicReference<>();
-            // 並列処理for文
-            IntStream.range(0, posts.size()).forEach(i -> {
-                var p = posts.get(i).attr("href");
-                String link = http + p ;
-                downloader.set(new Downloader(link));
-                downloader.get().run();
-            });
 
-            System.out.println("finish");
+            boolean fullLoop =  Downloader.count.get() + posts.size() < MAX_IMG_CNT;
+            System.out.println("fullLoop : " + fullLoop + " count : " + Downloader.count.get() + " posts.size() : " + posts.size() + " MAX_IMG_CNT : " + MAX_IMG_CNT);
+            if(posts.size() == 0 ){
+                isRunning.set(false);
+                return;
+            }
+            if(fullLoop){
+                // 並列処理for文
+                IntStream.range(0, posts.size()).forEach(i -> {
+                    var p = posts.get(i).attr("href");
+                    String link = http + p ;
+                    if (Downloader.count.get() < MAX_IMG_CNT ) {
+                        downloader.set(new Downloader(link));
+                        downloader.get().run();
+                        System.out.println("Downloader count : " + Downloader.count.get());
+                    }
+                });
+            }else {
+                int n =  MAX_IMG_CNT - Downloader.count.get();
+                // 並列処理for文
+                IntStream.range(0, n).forEach(i -> {
+                    var p = posts.get(i).attr("href");
+                    String link = http + p ;
+                    if (Downloader.count.get() < MAX_IMG_CNT ) {
+                        downloader.set(new Downloader(link));
+                        downloader.get().run();
+                        System.out.println("Downloader count : " + Downloader.count.get());
+                    }
+                });
+            }
+            if(Downloader.count.get() >= MAX_IMG_CNT){
+                isRunning.set(false);
+                System.out.println("finish");
+                Thread.sleep(1000);
+            }
             System.out.println(Downloader.count.get() + " images downloaded");
 
         }catch (Exception e){
             e.printStackTrace();
         }
-        long endTime = System.currentTimeMillis();
-        System.out.println("Total execution time: " + (endTime - startTime));
     }
 }

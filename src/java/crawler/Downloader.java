@@ -1,7 +1,7 @@
 package crawler;
 
 
-import global.Properties;
+import global.GlobalProperties;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -19,9 +19,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 画像をゲットする
  */
 public final class Downloader  {
-//    private String url = "https://hijiribe.donmai.us/posts/6483817?q=mostima_%28arknights%29";
-    private final static String fileDir = Properties.PIC_DIR;
-    private final static String ext = Properties.FILE_FORMAT;
+    private final static String fileDir = GlobalProperties.PIC_DIR;
+    private final static String ext = GlobalProperties.FILE_FORMAT;
     private boolean saveTag = false;
     public static final AtomicInteger count = new AtomicInteger();
     private URL url;
@@ -36,71 +35,73 @@ public final class Downloader  {
         }
     }
 
-
     public void run() {
-        try {
-            // HTTP URL Connection
-            HttpURLConnection openConnection =
-                    (HttpURLConnection) url.openConnection();
-            openConnection.setAllowUserInteraction(false);
-            openConnection.setInstanceFollowRedirects(true);
-            openConnection.setRequestMethod("GET");
-            openConnection.connect();
+        Yelan.isRunning.set(count.get() < Yelan.MAX_IMG_CNT);
+        if(Yelan.isRunning.get()){
+            try {
+                // HTTP URL Connection
+                HttpURLConnection openConnection =
+                        (HttpURLConnection) url.openConnection();
+                openConnection.setAllowUserInteraction(false);
+                openConnection.setInstanceFollowRedirects(true);
+                openConnection.setRequestMethod("GET");
+                openConnection.connect();
 
-            int httpStatusCode = openConnection.getResponseCode();
-            if (httpStatusCode != HttpURLConnection.HTTP_OK) {
-                throw new Exception("HTTP Status " + httpStatusCode);
-            }
+                int httpStatusCode = openConnection.getResponseCode();
+                if (httpStatusCode != HttpURLConnection.HTTP_OK) {
+                    throw new Exception("HTTP Status " + httpStatusCode);
+                }
 
-            String contentType = openConnection.getContentType();
+                String contentType = openConnection.getContentType();
 //            System.out.println("Content-Type: " + contentType);
 
-            // Input Stream
-            DataInputStream dataInStream
-                    = new DataInputStream(
-                    openConnection.getInputStream());
+                // Input Stream
+                DataInputStream dataInStream
+                        = new DataInputStream(
+                        openConnection.getInputStream());
 
-            // Read HTML content
-            BufferedReader reader = new BufferedReader(new InputStreamReader(openConnection.getInputStream()));
-            StringBuilder htmlContent = new StringBuilder();
-            String line;
-            //Read html one line at a time
-            while ((line = reader.readLine()) != null) {
-                htmlContent.append(line);
-            }
-            reader.close();
+                // Read HTML content
+                BufferedReader reader = new BufferedReader(new InputStreamReader(openConnection.getInputStream()));
+                StringBuilder htmlContent = new StringBuilder();
+                String line;
+                //Read html one line at a time
+                while ((line = reader.readLine()) != null) {
+                    htmlContent.append(line);
+                }
+                reader.close();
 //            System.out.println(htmlContent.toString());
-            Document document = Jsoup.parse(htmlContent.toString());
+                Document document = Jsoup.parse(htmlContent.toString());
 //            System.out.println(document.title());
 
-            if(Properties.TAG2JSON){
-                tagList(document);
-            }
+                if(GlobalProperties.TAG2JSON){
+                    tagList(document);
+                }
 
-            //get #image img element
-            Element imageElement = document.getElementById("image");
+                //get #image img element
+                Element imageElement = document.getElementById("image");
 
-            if (imageElement != null) {
-                String imageUrl = imageElement.attr("src");
+                if (imageElement != null) {
+                    String imageUrl = imageElement.attr("src");
 //                System.out.println("Image URL: " + imageUrl);
 
-                String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
-                // remove fileformat extension
-                fileName = fileName.substring(0, fileName.lastIndexOf("."));
-                String fileFormat = fileFormat(imageUrl);
-                String filepath = fileDir + fileName + fileFormat;
-                // 画像をダウンロードして保存する
-                downloadImage(imageUrl, filepath);
-                count.set(count.get()+1);
-            } else {
-                System.out.println("Image not found.");
-            }
+                    String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
+                    // remove fileformat extension
+                    fileName = fileName.substring(0, fileName.lastIndexOf("."));
+                    String fileFormat = fileFormat(imageUrl);
+                    String filepath = fileDir + fileName + fileFormat;
+                    // 画像をダウンロードして保存する
+                    downloadImage(imageUrl, filepath);
+                    count.set(count.get()+1);
+                } else {
+                    System.out.println("Image not found.");
+                }
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
 //            System.out.println(e.getMessage());
-            e.printStackTrace();
+                e.printStackTrace();
+            }
         }
     }
     //image downloader
