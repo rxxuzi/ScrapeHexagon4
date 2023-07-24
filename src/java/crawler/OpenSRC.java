@@ -4,18 +4,34 @@ import fast.Tag;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.InputStreamReader;
+
+import java.io.*;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import global.GlobalProperties;
-
 import javax.net.ssl.SSLHandshakeException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.IntStream;
 
+/**
+ * This class is a crawler of the OpenSRC website.
+ * It can be used to download images from the website.
+ *
+ * <p>The following example illustrates how to use this class:
+ *
+ * <pre>
+ *     {@code
+ *       OpenSRC osrc = new OpenSRC(); //create a new crawler
+ *       osrc.setTag(exampleSearchedTag); //set tag
+ *       osrc.run();//run the crawler
+ *     }
+ * </pre>
+ * @author rxxuzi
+ * @version 1.5
+ */
 public final class OpenSRC {
 
     public final static String http = GlobalProperties.DOMAIN;
@@ -119,7 +135,25 @@ public final class OpenSRC {
             }
             System.out.println(Downloader.count.get() + " images downloaded");
 
-        }catch (Exception e){
+        }catch (FileNotFoundException e){
+            System.out.println("FileNotFoundException");
+            e.printStackTrace();
+        }catch (SSLHandshakeException e){
+            System.out.println("SSLHandshakeException");
+            e.printStackTrace();
+        } catch (ProtocolException e) {
+            System.out.println("ProtocolException");
+            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            System.out.println("MalformedURLException");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("IOException");
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            System.out.println("InterruptedException");
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

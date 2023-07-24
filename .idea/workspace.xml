@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_07_22_11_12_[変更]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_07_22_11_12___.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/SETTING.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/SETTING.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/DeletePics.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script/DeletePics.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/crawler/Downloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Downloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/crawler/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/crawler/OpenSRC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/OpenSRC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="HTML File" />
+        <option value="Record" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2SsaNoPLbvGHuhrwbVkeeyUltVP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dot_c/IdeaProjects/ScrapeHexagon4/src/scala&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;モジュール&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\src\scala" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\.global" />
+      <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\script" />
+      <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\config" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="crawler" />
+    </key>
+  </component>
+  <component name="RunManager" selected="アプリケーション.Main">
+    <configuration name="A" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="global.A" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="global.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Jon" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="global.Jon" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="global.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="crawler.Main" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="crawler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScalaMain" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="open.ScalaMain" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="open.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimpleDownloader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="crawler.SimpleDownloader" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="crawler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="アプリケーション.Main" />
+        <item itemvalue="アプリケーション.ScalaMain" />
+        <item itemvalue="アプリケーション.A" />
+        <item itemvalue="アプリケーション.SimpleDownloader" />
+        <item itemvalue="アプリケーション.Jon" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="アプリケーションレベル" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="デフォルトタスク">
+      <changelist id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="" />
+      <created>1689937704742</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689937704742</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Hexagon">
+      <created>1689950953361</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689950953361</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Hexagon">
+      <created>1689991918705</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689991918705</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Hexagon">
+      <created>1690010508035</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1690010508035</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Hexagon">
+      <created>1690037408872</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690037408872</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Hexagon">
+      <created>1690068192394</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1690068192394</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Hexagon">
+      <created>1690068612427</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1690068612427</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Hexagon">
+      <created>1690095466558</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1690095466558</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add scala and c++">
+      <created>1690095567062</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1690095567062</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Hexagon">
+      <created>1690095745646</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1690095745646</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Hexagon">
+      <created>1690103629036</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1690103629036</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Hexagon">
+      <created>1690112138344</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1690112138344</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Hexagon">
+      <created>1690159169854</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1690159169854</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Hexagon">
+      <created>1690159988705</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1690159988705</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add scala and c++" />
+    <MESSAGE value="Hexagon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hexagon" />
+  </component>
+</project>

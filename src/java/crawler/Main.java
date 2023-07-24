@@ -1,8 +1,8 @@
 package crawler;
 
 import global.GlobalProperties;
-import open.SRC;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -17,18 +17,12 @@ public class Main {
             System.out.println("Wrong input");
             System.exit(1);
         }
-        System.out.print("Enter the tag you want to download: ");
-        String s = sc.nextLine();
 
-        try{
-            GlobalProperties properties = new GlobalProperties();
-        }catch (Exception e){
-            e.printStackTrace();
-            System.exit(1);
-        }
+        GlobalProperties properties = new GlobalProperties();
+
         OpenSRC yelan = new OpenSRC();
         long  startTime = System.currentTimeMillis();
-        yelan.setTag(s);
+        yelan.setTag("Mostima_(arknights)");
         yelan.run();
         long endTime = System.currentTimeMillis();
         System.out.println("Total execution time: " + (endTime - startTime));

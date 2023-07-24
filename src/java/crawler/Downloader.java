@@ -22,9 +22,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class Downloader  {
     private final static String fileDir = GlobalProperties.PIC_DIR;
     private final static String ext = GlobalProperties.FILE_FORMAT;
-    private boolean saveTag = false;
+    private boolean saveTag = GlobalProperties.TAG2JSON;
     public static final AtomicInteger count = new AtomicInteger();
     private URL url;
+    private String fileName;
 
     public Downloader(String srcURL) {
         try{
@@ -74,9 +75,7 @@ public final class Downloader  {
                 Document document = Jsoup.parse(htmlContent.toString());
 //            System.out.println(document.title());
 
-                if(GlobalProperties.TAG2JSON){
-                    tagList(document);
-                }
+
 
                 //get #image img element
                 Element imageElement = document.getElementById("image");
@@ -85,9 +84,11 @@ public final class Downloader  {
                     String imageUrl = imageElement.attr("src");
 //                System.out.println("Image URL: " + imageUrl);
 
-                    String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
+                    fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
+
                     // remove fileformat extension
                     fileName = fileName.substring(0, fileName.lastIndexOf("."));
+
                     String fileFormat = fileFormat(imageUrl);
                     String filepath = fileDir + fileName + fileFormat;
                     // 画像をダウンロードして保存する
@@ -95,6 +96,10 @@ public final class Downloader  {
                     count.set(count.get()+1);
                 } else {
                     System.out.println("Image not found.");
+                }
+
+                if(GlobalProperties.TAG2JSON){
+                    tagList(document);
                 }
 
             } catch (IOException e) {
@@ -157,11 +162,12 @@ public final class Downloader  {
 
 
         if(saveTag){
-            String path  = GlobalProperties.JSON_DIR + doc.title() + count.get() +".json";
-            File file = new File("./resources/test.json");
+            String path  = GlobalProperties.JSON_DIR  +  fileName + ".json";
+            File file = new File(path);
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            FileWriter fw;
             try {
-                FileWriter fw = new FileWriter(file);
+                fw = new FileWriter(file);
                 fw.write(gson.toJson(E));
                 fw.close();
                 System.out.println("Write to file successfully / Size Of List" + E.size());

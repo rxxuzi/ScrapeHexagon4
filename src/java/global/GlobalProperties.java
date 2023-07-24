@@ -61,6 +61,10 @@ public class GlobalProperties {
         }
     }
 
+    public void push(){
+
+    }
+
     /**
      * 指定されたファイルを設定ファイルとして読み込み、 {@link java.util.Properties} にして返します。
      * 指定されたファイルの各行は「キー=値」となるプロパティ、または#で始まるコメントを含むことが出来ます。
