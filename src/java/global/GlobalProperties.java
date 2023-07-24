@@ -20,8 +20,7 @@ public class GlobalProperties {
     public static String FILE_FORMAT = ".png";
     public static boolean DEBUG = false;
     public static String DOMAIN ;
-    public static int MAX_IMG_CNT = 10;
-//    public static void main(String[] args) throws IOException {
+    public static int MAX_IMG_CNT = 100;
 
     public GlobalProperties() {
 

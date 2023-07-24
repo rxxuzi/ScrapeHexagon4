@@ -1,6 +1,5 @@
 package main;
 
-import driver.Driver;
 
 import java.awt.*;
 
@@ -46,8 +45,8 @@ public class Draw {
     public void progressBar(Graphics g , int x , int y, int dx , int dy){
         g.setColor(new Color(255, 255, 255));
 
-        g.fillRect(x, y , (int)(dx*(Driver.progress/100)), dy);
-        g.drawString(Driver.progress + "%" , x , y - dy);
+//        g.fillRect(x, y , (int)(dx*(Driver.progress/100)), dy);
+//        g.drawString(Driver.progress + "%" , x , y - dy);
     }
 
     private final String[] titleLine ={

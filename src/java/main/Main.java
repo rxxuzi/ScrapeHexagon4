@@ -1,6 +1,5 @@
 package main;
 
-import driver.Driver;
 import fast.Del;
 import fast.Log;
 
@@ -14,7 +13,6 @@ public class Main {
     public static void main(String[] args) {
         Core core = new Core();
         Log.l = Log.getLogNum();
-        Driver.setTotalImage(Del.numberOfPic());
 
         JFrame jf = new JFrame();
         ImageIcon icon = new ImageIcon("./data/images/hexagon.png");

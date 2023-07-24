@@ -10,7 +10,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.*;
-import java.net.*;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,27 +21,18 @@ import java.util.concurrent.atomic.AtomicInteger;
  * HTTP リクエストからhtmlをgetし、imgのソースURLから
  * 画像をゲットする
  */
-public final class Downloader  {
+public final class SimpleDownloader {
     private final static String fileDir = GlobalProperties.PIC_DIR;
     private final static String ext = GlobalProperties.FILE_FORMAT;
-    private boolean saveTag = false;
     public static final AtomicInteger count = new AtomicInteger();
-    private URL url;
+    private static String path = "https://danbooru.donmai.us/posts/6379231?q=mostima_%28arknights%29+";
 
-    public Downloader(String srcURL) {
-        try{
-            this.url = new URL(srcURL);
-        }catch (MalformedURLException e) {
-            e.printStackTrace();
-        }finally {
-            System.out.println(count.get() + " : Download image : " + srcURL);
-        }
-    }
+    public static void main(String[] args){
 
-    public void run() {
         OpenSRC.isRunning.set(count.get() < OpenSRC.MAX_IMG_CNT);
         if(OpenSRC.isRunning.get()){
             try {
+                URL url = new URL(path);
                 // HTTP URL Connection
                 HttpURLConnection openConnection =
                         (HttpURLConnection) url.openConnection();
@@ -134,11 +126,13 @@ public final class Downloader  {
         
     }
 
-    private List<String> generalTagList = new ArrayList<>();
-    private List<String> characterTagList = new ArrayList<>();
-    private List<List> E = new LinkedList<>();
+//    static LinkedList<List> E = new LinkedList<>();
 
-    private void tagList (Document doc){
+    private static void tagList (Document doc){
+
+        List<String> generalTagList = new ArrayList<>();
+        List<String> characterTagList = new ArrayList<>();
+
         Elements elements;
         Elements generalElements = doc.getElementsByClass("tag-type-0");
         Elements characterElements = doc.getElementsByClass("tag-type-4");
@@ -153,31 +147,24 @@ public final class Downloader  {
             characterTagList.add(e.text());
         }
 
-        E.add(generalTagList);
-        E.add(characterTagList);
-
-
-        if(saveTag){
-            writeJson(E);
-            saveTag = false;
-        }
-    }
-
-    private static void writeJson(List<List> E){
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String filePath = GlobalProperties.JSON_DIR + "taglist.json";
-        File file = new File(filePath);
-        try {
-            FileWriter fw = new FileWriter(file);
-            fw.write(gson.toJson(E));
-            fw.close();
-            System.out.println("Write to file successfully / Size Of List" + E.size());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    class DataObject{
+//        E.add(generalTagList);
+//        E.add(characterTagList);
+//        save();
 
     }
+
+//    public static void save() {
+//        String filename = "taglist_" + count.get() + ".json";
+//        String filePath = GlobalProperties.JSON_DIR + filename;
+//        File file = new File(filePath);
+//        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//        try {
+//            FileWriter fw = new FileWriter(file);
+//            fw.write(gson.toJson(E));
+//            fw.close();
+//            System.out.println("Write to file successfully / Size Of List" + E.size());
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 }

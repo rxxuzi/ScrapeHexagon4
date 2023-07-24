@@ -19,6 +19,7 @@ object SRC {
 }
 
 final class SRC {
+
   private var TAG = "exusiai_%28arknights%29+pantyhose"
 
   def getTag: String = TAG

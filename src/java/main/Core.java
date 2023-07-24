@@ -12,7 +12,6 @@ import java.util.Objects;
 import java.util.Random;
 
 import data.Predict;
-import driver.*;
 import fast.*;
 import data.ReadFromJson;
 import data.Search;
@@ -33,7 +32,6 @@ public class Core extends JPanel {
     @BooleanFlag
     boolean isFormed1 = false, isFormed2= false;
 
-    Driver driver = new Driver();
     JButton[] btn = new JButton[10];
     JCheckBox[] cb = new JCheckBox[3];
     JTextField[] tf = new JTextField[2];
@@ -71,18 +69,7 @@ public class Core extends JPanel {
                 mainLabel.setFont(new Font("SansSerif", Font.BOLD, 60));
 
                 //driver run
-                Log.l ++;
-                driver.start();
-                //TODO
-                //非同期処理が終わったら以下の表示する
-                if(Driver.getIsSuccess()){
-                    mainLabel.setForeground(Color.CYAN);
-                    mainLabel.setText(status[0]);
-                }else{
-                    mainLabel.setForeground(Color.yellow);
-                    mainLabel.setText(status[1]);
-                    Log.error("Failed Getting image");
-                }
+
 
             }else if(!isFormed1 && isFormed2){
                 mainLabel.setFont(new Font("SansSerif", Font.PLAIN, 17));
@@ -124,7 +111,6 @@ public class Core extends JPanel {
             lb[0].setText("Get Picture About : " + word);
             if(!Objects.equals(word, "")){
                 isFormed1 = true;
-                Driver.search(word);
             }
             mainLabel.setText("");
         });
@@ -161,7 +147,6 @@ public class Core extends JPanel {
                 imgCount = Integer.parseInt(tf[1].getText());
                 System.out.println(imgCount);
                 //set maxImage
-                Driver.maxImage = imgCount;
                 lb[1].setText("Get Picture Count : " + imgCount);
                 mainLabel.setText("");
             }catch (NumberFormatException exception){
@@ -183,10 +168,8 @@ public class Core extends JPanel {
         //check box is
         cb[0].addActionListener(e -> {
             if(cb[0].isSelected()){
-                Driver.blockExplicit(true);
                 lb[4].setText("Blocked");
             }else {
-                Driver.blockExplicit(false);
                 lb[4].setText("");
             }
         });
@@ -206,11 +189,9 @@ public class Core extends JPanel {
         cb[1].setOpaque(false);
         cb[1].addActionListener(e -> {
             if(cb[1].isSelected()){
-                Driver.setCanSaveVideo(true);
 
                 lb[6].setText("Save the video");
             }else {
-                Driver.setCanSaveVideo(true);
                 lb[6].setText("Not Save the video");
             }
         });
@@ -229,10 +210,8 @@ public class Core extends JPanel {
         cb[2].setOpaque(false);
         cb[2].addActionListener(e -> {
             if(cb[2].isSelected()){
-                Driver.setHQ(true);
                 lb[9].setText("Save hq");
             }else {
-                Driver.setHQ(false);
                 lb[9].setText("");
             }
         });
@@ -258,7 +237,7 @@ public class Core extends JPanel {
             Del.allPicDelete();
             Del.allLogDelete();
             Log.l = 0;
-            Driver.setTotalImage(0);
+
             mainLabel.setFont(new Font("SansSerif", Font.BOLD, 40));
             mainLabel.setForeground(Color.yellow);
             mainLabel.setText("All Deleted.");
