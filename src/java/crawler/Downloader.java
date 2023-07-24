@@ -11,9 +11,8 @@ import org.jsoup.select.Elements;
 
 import java.io.*;
 import java.net.*;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.nio.file.Path;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -136,7 +135,7 @@ public final class Downloader  {
 
     private List<String> generalTagList = new ArrayList<>();
     private List<String> characterTagList = new ArrayList<>();
-    private List<List> E = new LinkedList<>();
+    private Map<String, List> E = new HashMap();
 
     private void tagList (Document doc){
         Elements elements;
@@ -153,27 +152,23 @@ public final class Downloader  {
             characterTagList.add(e.text());
         }
 
-        E.add(generalTagList);
-        E.add(characterTagList);
+        E.put("character" , characterTagList);
+        E.put("general" ,generalTagList);
 
 
         if(saveTag){
-            writeJson(E);
+            String path  = GlobalProperties.JSON_DIR + doc.title() + count.get() +".json";
+            File file = new File("./resources/test.json");
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            try {
+                FileWriter fw = new FileWriter(file);
+                fw.write(gson.toJson(E));
+                fw.close();
+                System.out.println("Write to file successfully / Size Of List" + E.size());
+            }catch (Exception e){
+                e.printStackTrace();
+            }
             saveTag = false;
-        }
-    }
-
-    private static void writeJson(List<List> E){
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String filePath = GlobalProperties.JSON_DIR + "taglist.json";
-        File file = new File(filePath);
-        try {
-            FileWriter fw = new FileWriter(file);
-            fw.write(gson.toJson(E));
-            fw.close();
-            System.out.println("Write to file successfully / Size Of List" + E.size());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
     }
 

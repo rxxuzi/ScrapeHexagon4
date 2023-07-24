@@ -26,7 +26,7 @@ public class Main {
             e.printStackTrace();
             System.exit(1);
         }
-        open.SRC yelan = new SRC();
+        OpenSRC yelan = new OpenSRC();
         long  startTime = System.currentTimeMillis();
         yelan.setTag(s);
         yelan.run();

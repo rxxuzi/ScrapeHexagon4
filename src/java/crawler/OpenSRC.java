@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import global.GlobalProperties;
+
+import javax.net.ssl.SSLHandshakeException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.IntStream;
