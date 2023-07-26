@@ -20,10 +20,11 @@ public class Main {
 
         GlobalProperties properties = new GlobalProperties();
 
-        OpenSRC yelan = new OpenSRC();
+        OpenSRC opensrc = new OpenSRC();
         long  startTime = System.currentTimeMillis();
-        yelan.setTag("Mostima_(arknights)");
-        yelan.run();
+        System.out.println("Enter the Word");
+        opensrc.setTag(sc.nextLine());
+        opensrc.run();
         long endTime = System.currentTimeMillis();
         System.out.println("Total execution time: " + (endTime - startTime));
     }

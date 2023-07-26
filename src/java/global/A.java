@@ -8,9 +8,25 @@ import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 public class A {
     public static void main(String[] args) {
+        Scanner sc1 = new Scanner(System.in);
+        System.out.print("Enter the number of images you want to download: ");
+        int c = 0;
+        try{
+            c = sc1.nextInt();
+        }catch ( Exception e ){
+            System.out.println("Wrong input");
+            System.exit(1);
+        }
+        System.out.println("Enter the tag of the image you want to download: ");
+        Scanner sc2 = new Scanner(System.in);
+        String tag = sc2.nextLine();
+
+        System.out.println(c + ": " + tag);
+
         List<String> list1 = new LinkedList<>();
         List<String> list2 = new LinkedList<>();
         var E = new HashMap<String , List>();

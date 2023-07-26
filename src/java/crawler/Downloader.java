@@ -3,6 +3,7 @@ package crawler;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import data.Gen;
 import global.GlobalProperties;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,6 +19,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * HTTP リクエストからhtmlをgetし、imgのソースURLから
  * 画像をゲットする
+ * <pre>
+ *     {@code
+ *     Downloader downloader = new Downloader(srcURL);
+ *     downloader.run(); //run the crawler
+ *     }
+ * </pre>
+ *
+ * Code snippet from OpenSRC.java
+ *
  */
 public final class Downloader  {
     private final static String fileDir = GlobalProperties.PIC_DIR;
@@ -138,9 +148,9 @@ public final class Downloader  {
         
     }
 
-    private List<String> generalTagList = new ArrayList<>();
-    private List<String> characterTagList = new ArrayList<>();
-    private Map<String, List> E = new HashMap();
+    private final List<String> generalTagList = new ArrayList<>();
+    private final List<String> characterTagList = new ArrayList<>();
+    private final Map<String, List<String>> E = new HashMap<>();
 
     private void tagList (Document doc){
         Elements elements;

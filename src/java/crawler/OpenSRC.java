@@ -40,7 +40,7 @@ public final class OpenSRC {
     public static int PAGE_COUNT = 1;
     private static final String BASIC_TAG = "&tags=";
     public static final AtomicBoolean isRunning = new AtomicBoolean(true);
-    private String TAG = "exusiai_%28arknights%29+pantyhose";
+    private String TAG = "exusiai_%28arknights%29";
 
     public String getTag() {
         return TAG;
@@ -128,11 +128,13 @@ public final class OpenSRC {
                     }
                 });
             }
+
             if(Downloader.count.get() >= MAX_IMG_CNT){
                 isRunning.set(false);
                 System.out.println("finish");
                 Thread.sleep(1000);
             }
+
             System.out.println(Downloader.count.get() + " images downloaded");
 
         }catch (FileNotFoundException e){
