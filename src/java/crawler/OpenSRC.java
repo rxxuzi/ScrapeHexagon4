@@ -49,87 +49,108 @@ public final class OpenSRC  {
     }
 
     public void run() {
-        do {
+        while (isRunning.get()){
+            System.out.println("run : " + isRunning.get() + ", count : " + imgCnt + ", px : " + px);
             sendPage(BASIC_URL + PAGE_COUNT + BASIC_TAG  + TAG);
             PAGE_COUNT++;
-        }while (isRunning.get());
+        }
         System.out.println("Last finish");
     }
 
     public void sendPage(String page){
-        try{
-            URL url = new URL(page);
+        if(isRunning.get()){
+            try{
 
-            Document document = OpenHTML.html(url);
-            System.out.println(document.title());
+                URL url = new URL(page);
 
-            //get #posts img element
-            Elements posts = document.getElementsByClass("post-preview-link");
+                System.out.println("images from : " + url);
 
-            Downloader[] d;
+                Document document = OpenHTML.html(url);
+                System.out.println(document.title());
+
+                //get #posts img element
+                Elements posts = document.getElementsByClass("post-preview-link");
+
+                Downloader[] d;
 
 
-            boolean fullLoop =  imgCnt + posts.size() < MAX_IMG_CNT;
+                boolean fullLoop =  imgCnt + posts.size() < MAX_IMG_CNT;
 
-            if(posts.size() == 0 ){
-                isRunning.set(false);
-                return;
-            }
-
-            if(fullLoop){
-                d = new Downloader[posts.size()];
-
-                System.out.println("fullLoop : " + fullLoop + ", count : " + imgCnt + ", posts size : " + posts.size() + " MAX_IMG_CNT : " + MAX_IMG_CNT);
-                // 並列処理for文
-                for (int i = 0; i < d.length; i++) {
-                    var p = posts.get(i).attr("href");
-                    String link = http + p ;
-                    if (imgCnt < MAX_IMG_CNT ) {
-                        d[i] = (new Downloader(link));
-                        d[i].start();
-                    }
+                if(posts.size() == 0 ){
+                    isRunning.set(false);
+                    return;
                 }
-                imgCnt += posts.size();
-            }else {
-                int n =  MAX_IMG_CNT - imgCnt;
-                System.out.println("fullLoop : " + fullLoop + ", count : " + imgCnt + ", posts size :  " + n + " MAX_IMG_CNT : " + MAX_IMG_CNT);
 
-                d = new Downloader[n];
+                if(fullLoop){
+                    d = new Downloader[posts.size()];
 
-                System.out.println("Not max saves!");
-                // 並列処理for文
-                for(int i = 0 ; i < d.length && i < posts.size()  ; i ++ ){
-                    var p = posts.get(i).attr("href");
-                    String link = http + p ;
-                    if (imgCnt < MAX_IMG_CNT ) {
-                        d[i] = new Downloader(link);
-                        d[i].start();
+                    System.out.println("fullLoop : " + fullLoop + ", count : " + imgCnt + ", posts size : " + posts.size() + " MAX_IMG_CNT : " + MAX_IMG_CNT);
+                    // 並列処理for文
+                    for (int i = 0; i < d.length; i++) {
+                        var p = posts.get(i).attr("href");
+                        String link = http + p ;
+                        if (imgCnt < MAX_IMG_CNT ) {
+                            d[i] = (new Downloader(link));
+                            d[i].start();
+                        }
                     }
+                    for(Downloader dr : d){
+                        try {
+                            dr.join();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    imgCnt += posts.size();
+                }else {
+                    int n =  MAX_IMG_CNT - imgCnt;
+                    System.out.println("fullLoop : " + fullLoop + ", count : " + imgCnt + ", posts size :  " + n + " MAX_IMG_CNT : " + MAX_IMG_CNT);
+
+                    d = new Downloader[n];
+
+                    System.out.println("Not max saves!");
+                    // 並列処理for文
+                    for(int i = 0 ; i < d.length && i < posts.size()  ; i ++ ){
+                        var p = posts.get(i).attr("href");
+                        String link = http + p ;
+                        if (imgCnt < MAX_IMG_CNT ) {
+                            d[i] = new Downloader(link);
+                            d[i].start();
+                        }
+                    }
+
+                    for(Downloader dr : d){
+                        try {
+                            dr.join();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    imgCnt += n ;
                 }
-                imgCnt += n ;
+
+                if(imgCnt >= MAX_IMG_CNT){
+                    isRunning.set(false);
+                    System.out.println("img> max -> finish");
+                    Status.setStatusCode(0);
+                    Thread.sleep(1000);
+                }
+                System.out.println(imgCnt + " images downloaded");
+
+            } catch (MalformedURLException e) {
+                System.out.println("MalformedURLException");
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                System.out.println("InterruptedException");
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
-
-
-            if(imgCnt > MAX_IMG_CNT){
-                isRunning.set(false);
-                System.out.println("finish");
-                Status.setStatusCode(0);
-                Thread.sleep(1000);
-            }
-
-
-            System.out.println("images from : " + url);
-            System.out.println(imgCnt + " images downloaded");
-
-        } catch (MalformedURLException e) {
-            System.out.println("MalformedURLException");
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            System.out.println("InterruptedException");
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
+        }else{
+            System.out.println("isRunning = " + isRunning);
+            System.out.println("This is End");
         }
+
     }
 }

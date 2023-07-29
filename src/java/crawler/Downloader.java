@@ -48,7 +48,6 @@ public final class Downloader extends Thread {
     }
 
     public void run() {
-        OpenSRC.isRunning.set(OpenSRC.imgCnt < OpenSRC.MAX_IMG_CNT);
         if(OpenSRC.isRunning.get()){
             try {
                 Document document = OpenHTML.html(url);

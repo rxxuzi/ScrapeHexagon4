@@ -4,11 +4,13 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Log{
 
     public static int l =  0;
     private static final String DirPath = "./resources/Log/";
+    ArrayList<String> log = new ArrayList<>();
 
     public static void write(String content) {
         File file = new File(DirPath  +"Get_"+ l + ".log");

@@ -1,6 +1,7 @@
 package crawler;
 
 import data.CheckImage;
+import fast.Del;
 import global.GlobalProperties;
 
 import java.util.InputMismatchException;
@@ -8,6 +9,7 @@ import java.util.Scanner;
 
 public class Crawler {
     public static void main(String[] args) {
+        Del.allPicDelete();
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number of images you want to download: ");
         GlobalProperties properties = new GlobalProperties();
