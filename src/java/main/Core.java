@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Random;
 
-import crawler.OpenSRC;
+import latest.OpenSRC;
 import data.Predict;
 import fast.*;
 import data.ReadFromJson;

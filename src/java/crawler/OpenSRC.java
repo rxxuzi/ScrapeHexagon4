@@ -2,16 +2,14 @@ package crawler;
 
 import fast.Tag;
 import global.GlobalProperties;
-import global.OpenHTML;
 import global.Status;
+import latest.Downloader;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.stream.IntStream;
 
 /**
  * This class is a crawler of the OpenSRC website.
@@ -71,7 +69,7 @@ public final class OpenSRC  {
                 //get #posts img element
                 Elements posts = document.getElementsByClass("post-preview-link");
 
-                Downloader[] d;
+                latest.Downloader[] d;
 
 
                 boolean fullLoop =  imgCnt + posts.size() < MAX_IMG_CNT;
@@ -82,7 +80,7 @@ public final class OpenSRC  {
                 }
 
                 if(fullLoop){
-                    d = new Downloader[posts.size()];
+                    d = new latest.Downloader[posts.size()];
 
                     System.out.println("fullLoop : " + fullLoop + ", count : " + imgCnt + ", posts size : " + posts.size() + " MAX_IMG_CNT : " + MAX_IMG_CNT);
                     // 並列処理for文
@@ -90,11 +88,11 @@ public final class OpenSRC  {
                         var p = posts.get(i).attr("href");
                         String link = http + p ;
                         if (imgCnt < MAX_IMG_CNT ) {
-                            d[i] = (new Downloader(link));
+                            d[i] = (new latest.Downloader(link));
                             d[i].start();
                         }
                     }
-                    for(Downloader dr : d){
+                    for(latest.Downloader dr : d){
                         try {
                             dr.join();
                         } catch (InterruptedException e) {
@@ -107,7 +105,7 @@ public final class OpenSRC  {
                     int n =  MAX_IMG_CNT - imgCnt;
                     System.out.println("fullLoop : " + fullLoop + ", count : " + imgCnt + ", posts size :  " + n + " MAX_IMG_CNT : " + MAX_IMG_CNT);
 
-                    d = new Downloader[n];
+                    d = new latest.Downloader[n];
 
                     System.out.println("Not max saves!");
                     // 並列処理for文
@@ -115,7 +113,7 @@ public final class OpenSRC  {
                         var p = posts.get(i).attr("href");
                         String link = http + p ;
                         if (imgCnt < MAX_IMG_CNT ) {
-                            d[i] = new Downloader(link);
+                            d[i] = new latest.Downloader(link);
                             d[i].start();
                         }
                     }

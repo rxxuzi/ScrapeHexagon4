@@ -5,6 +5,7 @@ import data.CheckImage;
 import fast.Del;
 import global.GlobalProperties;
 import global.Status;
+import latest.OpenSRC;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -28,7 +29,7 @@ public class Crawler {
         }
 
 
-        OpenSRC opensrc = new OpenSRC();
+        latest.OpenSRC opensrc = new OpenSRC();
         System.out.println("Enter the Word");
         String word = sc.next();
         long  startTime = System.currentTimeMillis();

@@ -8,14 +8,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change afterPath="$PROJECT_DIR$/src/scala/latest/Online.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scala/zip/MkZip.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_07_22_11_12_[変更]/shelved.patch" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scala/latest/Downloader.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scala/latest/Main.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scala/latest/OpenSRC.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/crawler/Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Crawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/data/CheckImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/data/CheckImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/global/A.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/crawler/Downloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Downloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/crawler/OpenSRC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/OpenSRC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/global/OpenHTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/OpenHTML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/main/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/Core.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scala/latest/OnlineZip.scala" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,42 +88,30 @@
       <recent name="zip" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="latest" />
       <recent name="crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.Online">
-    <configuration name="CheckImage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="data.CheckImage" />
-      <module name="ScrapeHexagon4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="data.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClassB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="data.ClassB" />
-      <module name="ScrapeHexagon4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="data.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="アプリケーション.ScalaMain">
     <configuration name="Crawler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="crawler.Crawler" />
       <module name="ScrapeHexagon4" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="crawler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="latest.Main" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="latest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -147,7 +137,20 @@
       <module name="ScrapeHexagon4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="latest.*" />
+          <option name="PATTERN" value="latest.Crawler" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScalaMain" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="open.ScalaMain" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="open.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -157,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="アプリケーション.ScalaMain" />
+        <item itemvalue="アプリケーション.Main" />
         <item itemvalue="アプリケーション.Online" />
         <item itemvalue="アプリケーション.Crawler" />
         <item itemvalue="アプリケーション.MkZip" />
-        <item itemvalue="アプリケーション.ClassB" />
-        <item itemvalue="アプリケーション.CheckImage" />
       </list>
     </recent_temporary>
   </component>
@@ -300,7 +303,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690622375596</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Hexagon">
+      <created>1690623949580</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1690623949580</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

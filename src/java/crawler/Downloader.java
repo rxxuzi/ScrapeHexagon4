@@ -4,7 +4,6 @@ package crawler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import global.GlobalProperties;
-import global.OpenHTML;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -17,7 +16,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * HTTP リクエストからhtmlをgetし、imgのソースURLから
@@ -38,6 +36,8 @@ public final class Downloader extends Thread {
     private boolean saveTag = GlobalProperties.TAG2JSON;
     private URL url;
     private String fileName;
+    private Map<String, List<String>> tagMap = new HashMap<>();
+
 
     public Downloader(String srcURL) {
         try{
