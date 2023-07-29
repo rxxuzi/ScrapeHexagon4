@@ -1,5 +1,7 @@
 package data;
 
+import global.GlobalProperties;
+
 import java.io.File;
 
 public class CheckImage {
@@ -14,5 +16,11 @@ public class CheckImage {
         File[] files = dir.listFiles();
         assert files != null;
         System.out.println(files.length);
+    }
+    public int dirLength(){
+        File dir = new File(GlobalProperties.PIC_DIR);
+        File[] files = dir.listFiles();
+        assert files != null;
+        return files.length;
     }
 }

@@ -1,9 +1,12 @@
 package crawler;
 
+import data.Archive;
 import data.CheckImage;
 import fast.Del;
 import global.GlobalProperties;
+import global.Status;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -13,9 +16,11 @@ public class Crawler {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number of images you want to download: ");
         GlobalProperties properties = new GlobalProperties();
+        properties.makeDir();
 
+        int x = -1;
         try{
-            int x = sc.nextInt();
+            x = sc.nextInt();
             GlobalProperties.Compare(x);
         }catch (InputMismatchException e ){
             System.out.println("Wrong input");
@@ -32,6 +37,18 @@ public class Crawler {
         long endTime = System.currentTimeMillis();
         System.out.println("Total execution time: " + (endTime - startTime));
         CheckImage ch = new CheckImage();
-        ch.check();
+        if (ch.dirLength() == x){
+            System.out.println("Download complete");
+            Archive  ar = new Archive();
+            try {
+                ar.createZip();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        } else if (ch.dirLength() < x){
+            System.out.println("Download Failed" + "\n" + "Status Code : 100");
+            Status.setStatusCode(100);
+        }
+
     }
 }

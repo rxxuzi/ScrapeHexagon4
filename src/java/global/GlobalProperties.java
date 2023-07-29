@@ -57,6 +57,14 @@ public class GlobalProperties {
         }
     }
 
+    public void makeDir(){
+        String path = "./archive";
+        File dir = new File(path);
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
+    }
+
     public static void Compare(int x){
         if(x < MAX_IMG_CNT){
             MAX_IMG_CNT = x;

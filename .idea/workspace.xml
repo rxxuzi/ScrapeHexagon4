@@ -8,17 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change afterPath="$PROJECT_DIR$/src/java/data/Archive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/fast/DirLength.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scala/latest/Online.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scala/zip/MkZip.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2023_07_22_11_12_[変更]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/DeletePics.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script/DeletePics.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/crawler/Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Crawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/Downloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Downloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/OpenSRC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/OpenSRC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/SimpleDownloader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/fast/Del.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/fast/Del.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/fast/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/fast/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/global/A.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/A.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/data/CheckImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/data/CheckImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/global/A.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,24 +82,14 @@
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\script" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\config" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="zip" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.A">
-    <configuration name="A" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="global.A" />
-      <module name="ScrapeHexagon4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="global.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="アプリケーション.Online">
     <configuration name="CheckImage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="data.CheckImage" />
       <module name="ScrapeHexagon4" />
@@ -142,12 +129,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.Main" />
+    <configuration name="MkZip" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="zip.MkZip" />
       <module name="ScrapeHexagon4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.*" />
+          <option name="PATTERN" value="zip.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Online" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="latest.Online" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="latest.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -157,11 +157,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="アプリケーション.A" />
+        <item itemvalue="アプリケーション.Online" />
         <item itemvalue="アプリケーション.Crawler" />
+        <item itemvalue="アプリケーション.MkZip" />
         <item itemvalue="アプリケーション.ClassB" />
         <item itemvalue="アプリケーション.CheckImage" />
-        <item itemvalue="アプリケーション.main.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -293,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690613422830</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Hexagon">
+      <created>1690622375596</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1690622375596</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
