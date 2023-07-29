@@ -66,52 +66,49 @@ public final class OpenSRC  {
             //get #posts img element
             Elements posts = document.getElementsByClass("post-preview-link");
 
-            AtomicReference<Downloader> downloader = new AtomicReference<>();
-            Downloader downloader1 = new Downloader(http + posts.get(0).attr("href"));
+            Downloader[] d;
+
 
             boolean fullLoop =  imgCnt + posts.size() < MAX_IMG_CNT;
 
-            System.out.println("fullLoop : " + fullLoop + ", count : " + imgCnt + ", posts size() : " + posts.size() + " MAX_IMG_CNT : " + MAX_IMG_CNT);
             if(posts.size() == 0 ){
                 isRunning.set(false);
                 return;
             }
 
             if(fullLoop){
+                d = new Downloader[posts.size()];
+
+                System.out.println("fullLoop : " + fullLoop + ", count : " + imgCnt + ", posts size : " + posts.size() + " MAX_IMG_CNT : " + MAX_IMG_CNT);
                 // 並列処理for文
-                IntStream.range(0, posts.size()).forEach(i -> {
+                for (int i = 0; i < d.length; i++) {
                     var p = posts.get(i).attr("href");
                     String link = http + p ;
                     if (imgCnt < MAX_IMG_CNT ) {
-                        downloader.set(new Downloader(link));
-                        downloader.get().start();
+                        d[i] = (new Downloader(link));
+                        d[i].start();
                     }
-                });
+                }
                 imgCnt += posts.size();
             }else {
                 int n =  MAX_IMG_CNT - imgCnt;
+                System.out.println("fullLoop : " + fullLoop + ", count : " + imgCnt + ", posts size :  " + n + " MAX_IMG_CNT : " + MAX_IMG_CNT);
+
+                d = new Downloader[n];
+
+                System.out.println("Not max saves!");
                 // 並列処理for文
-                for(int i = 0 ; i < n ; i ++ ){
+                for(int i = 0 ; i < d.length && i < posts.size()  ; i ++ ){
                     var p = posts.get(i).attr("href");
                     String link = http + p ;
                     if (imgCnt < MAX_IMG_CNT ) {
-                        downloader.set(new Downloader(link));
-                        downloader.get().start();
+                        d[i] = new Downloader(link);
+                        d[i].start();
                     }
                 }
                 imgCnt += n ;
             }
 
-            try{
-                downloader.get().join();
-            }catch (Exception e){
-                System.out.println("Exception");
-                px ++;
-                if(px > 5){
-                    e.printStackTrace();
-                    return;
-                }
-            }
 
 
             if(imgCnt > MAX_IMG_CNT){

@@ -44,8 +44,6 @@ public final class Downloader extends Thread {
             this.url = new URL(srcURL);
         }catch (MalformedURLException e) {
             e.printStackTrace();
-        }finally {
-
         }
     }
 

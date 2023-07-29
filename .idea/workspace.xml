@@ -8,20 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change afterPath="$PROJECT_DIR$/src/java/data/CheckImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/global/Eula.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/global/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/SETTING.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/SETTING.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/crawler/Downloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Downloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Crawler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/crawler/OpenSRC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/OpenSRC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/UserInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/global/OpenHTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/OpenHTML.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/main/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/Core.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +81,7 @@
       <recent name="crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.CheckImage">
+  <component name="RunManager" selected="アプリケーション.Crawler">
     <configuration name="A" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="global.A" />
       <module name="ScrapeHexagon4" />
@@ -160,8 +149,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="アプリケーション.CheckImage" />
         <item itemvalue="アプリケーション.Crawler" />
+        <item itemvalue="アプリケーション.CheckImage" />
         <item itemvalue="アプリケーション.main.Main" />
         <item itemvalue="アプリケーション.A" />
         <item itemvalue="アプリケーション.ScalaMain" />
@@ -282,7 +271,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690346276166</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Hexagon">
+      <created>1690610215116</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1690610215116</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
