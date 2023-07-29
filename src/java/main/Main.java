@@ -1,6 +1,5 @@
 package main;
 
-import fast.Del;
 import fast.Log;
 
 import javax.swing.*;

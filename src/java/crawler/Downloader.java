@@ -3,17 +3,20 @@ package crawler;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import data.Gen;
 import global.GlobalProperties;
-import org.jsoup.Jsoup;
+import global.OpenHTML;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.*;
-import java.net.*;
-import java.nio.file.Path;
-import java.util.*;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -29,11 +32,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Code snippet from OpenSRC.java
  *
  */
-public final class Downloader  {
+public final class Downloader extends Thread {
     private final static String fileDir = GlobalProperties.PIC_DIR;
     private final static String ext = GlobalProperties.FILE_FORMAT;
     private boolean saveTag = GlobalProperties.TAG2JSON;
-    public static final AtomicInteger count = new AtomicInteger();
     private URL url;
     private String fileName;
 
@@ -43,49 +45,15 @@ public final class Downloader  {
         }catch (MalformedURLException e) {
             e.printStackTrace();
         }finally {
-            System.out.println(count.get() + " : Download image : " + srcURL);
+
         }
     }
 
     public void run() {
-        OpenSRC.isRunning.set(count.get() < OpenSRC.MAX_IMG_CNT);
+        OpenSRC.isRunning.set(OpenSRC.imgCnt < OpenSRC.MAX_IMG_CNT);
         if(OpenSRC.isRunning.get()){
             try {
-                // HTTP URL Connection
-                HttpURLConnection openConnection =
-                        (HttpURLConnection) url.openConnection();
-                openConnection.setAllowUserInteraction(false);
-                openConnection.setInstanceFollowRedirects(true);
-                openConnection.setRequestMethod("GET");
-                openConnection.connect();
-
-                int httpStatusCode = openConnection.getResponseCode();
-                if (httpStatusCode != HttpURLConnection.HTTP_OK) {
-                    throw new Exception("HTTP Status " + httpStatusCode);
-                }
-
-                String contentType = openConnection.getContentType();
-//            System.out.println("Content-Type: " + contentType);
-
-                // Input Stream
-                DataInputStream dataInStream
-                        = new DataInputStream(
-                        openConnection.getInputStream());
-
-                // Read HTML content
-                BufferedReader reader = new BufferedReader(new InputStreamReader(openConnection.getInputStream()));
-                StringBuilder htmlContent = new StringBuilder();
-                String line;
-                //Read html one line at a time
-                while ((line = reader.readLine()) != null) {
-                    htmlContent.append(line);
-                }
-                reader.close();
-//            System.out.println(htmlContent.toString());
-                Document document = Jsoup.parse(htmlContent.toString());
-//            System.out.println(document.title());
-
-
+                Document document = OpenHTML.html(url);
 
                 //get #image img element
                 Element imageElement = document.getElementById("image");
@@ -103,7 +71,7 @@ public final class Downloader  {
                     String filepath = fileDir + fileName + fileFormat;
                     // 画像をダウンロードして保存する
                     downloadImage(imageUrl, filepath);
-                    count.set(count.get()+1);
+                    System.out.println("Download image : " + url);
                 } else {
                     System.out.println("Image not found.");
                 }
@@ -113,9 +81,6 @@ public final class Downloader  {
                 }
 
             } catch (IOException e) {
-                e.printStackTrace();
-            } catch (Exception e) {
-//            System.out.println(e.getMessage());
                 e.printStackTrace();
             }
         }
@@ -180,7 +145,6 @@ public final class Downloader  {
                 fw = new FileWriter(file);
                 fw.write(gson.toJson(E));
                 fw.close();
-                System.out.println("Write to file successfully / Size Of List" + E.size());
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -188,7 +152,4 @@ public final class Downloader  {
         }
     }
 
-    class DataObject{
-
-    }
 }

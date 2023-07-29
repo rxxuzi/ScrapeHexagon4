@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Random;
 
+import crawler.OpenSRC;
 import data.Predict;
 import fast.*;
 import data.ReadFromJson;
@@ -37,12 +38,13 @@ public class Core extends JPanel {
     JTextField[] tf = new JTextField[2];
     JLabel[] lb = new JLabel[10];
     JLabel mainLabel;
-    String[] status = {"Success", "Fail", "Error"};
     Listener ml = new Listener();
     Random random = new Random();
     Draw draw ;
 
     Core(){
+        OpenSRC open = new OpenSRC();
+
         draw = new Draw(getWidth(),getHeight());
         for(int i = 0 ; i < lb.length ; i ++ ){
             lb[i] = new JLabel();
@@ -59,18 +61,13 @@ public class Core extends JPanel {
         mainLabel = new JLabel();
         mainLabel.setBounds(Main.WIDTH/2 - 150,10, 300 ,200);
 
-        /*
-            Retrieve image
-         */
+        // GET BUTTON
         JButton mainBtn = new JButton("GET");
         mainBtn.setBounds(Main.WIDTH/2 - 75,Main.HEIGHT - 150, 160, 40);
         mainBtn.addActionListener(e -> {
-            if( isFormed1 && isFormed2){
+            if(isFormed1 && isFormed2){
                 mainLabel.setFont(new Font("SansSerif", Font.BOLD, 60));
-
-                //driver run
-
-
+                open.setTag(word);
             }else if(!isFormed1 && isFormed2){
                 mainLabel.setFont(new Font("SansSerif", Font.PLAIN, 17));
                 mainLabel.setForeground(Color.red);
@@ -313,7 +310,7 @@ public class Core extends JPanel {
         btn[6].addActionListener(e -> {
             //open directory ./resources/pic
             try {
-                Desktop.getDesktop().open(new File("./resources/pic"));
+                Desktop.getDesktop().open(new File("./output/pics"));
             } catch (IOException ex) {
                 Log.error(ex.getMessage());
             }

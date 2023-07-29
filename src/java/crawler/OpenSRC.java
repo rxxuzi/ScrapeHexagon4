@@ -1,17 +1,14 @@
 package crawler;
 
 import fast.Tag;
-import org.jsoup.Jsoup;
+import global.GlobalProperties;
+import global.OpenHTML;
+import global.Status;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-import java.io.*;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-import global.GlobalProperties;
-import javax.net.ssl.SSLHandshakeException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.IntStream;
@@ -32,16 +29,17 @@ import java.util.stream.IntStream;
  * @author rxxuzi
  * @version 1.5
  */
-public final class OpenSRC {
+public final class OpenSRC  {
 
     public final static String http = GlobalProperties.DOMAIN;
     public final static String BASIC_URL = GlobalProperties.DOMAIN+"posts?page=";
-    public final static int MAX_IMG_CNT = Math.min(Main.IMG , GlobalProperties.MAX_IMG_CNT);
+    public final static int MAX_IMG_CNT = GlobalProperties.MAX_IMG_CNT;
     public static int PAGE_COUNT = 1;
     private static final String BASIC_TAG = "&tags=";
     public static final AtomicBoolean isRunning = new AtomicBoolean(true);
     private String TAG = "exusiai_%28arknights%29";
-
+    private int px = 0;
+    public static int imgCnt = 0;
     public String getTag() {
         return TAG;
     }
@@ -49,6 +47,7 @@ public final class OpenSRC {
     public void setTag(String TAGNAME) {
         this.TAG = Tag.translate(TAGNAME);
     }
+
     public void run() {
         do {
             sendPage(BASIC_URL + PAGE_COUNT + BASIC_TAG  + TAG);
@@ -60,97 +59,74 @@ public final class OpenSRC {
     public void sendPage(String page){
         try{
             URL url = new URL(page);
-            // HTTP URL Connection
-            HttpURLConnection openConnection =
-                    (HttpURLConnection) url.openConnection();
-            openConnection.setAllowUserInteraction(false);
-            openConnection.setInstanceFollowRedirects(true);
-            openConnection.setRequestMethod("GET");
-            openConnection.connect();
 
-            int httpStatusCode = openConnection.getResponseCode();
-            if (httpStatusCode != HttpURLConnection.HTTP_OK) {
-                throw new Exception("HTTP Status " + httpStatusCode);
-            }
-
-            String contentType = openConnection.getContentType();
-            System.out.println("Content-Type: " + contentType);
-
-            // Input Stream
-            DataInputStream dataInStream
-                    = new DataInputStream(
-                    openConnection.getInputStream());
-
-            // Read HTML content
-            BufferedReader reader = new BufferedReader(new InputStreamReader(openConnection.getInputStream()));
-            StringBuilder htmlContent = new StringBuilder();
-            String line;
-            //Read html one line at a time
-            while ((line = reader.readLine()) != null) {
-                htmlContent.append(line);
-            }
-            reader.close();
-            Document document = Jsoup.parse(htmlContent.toString());
+            Document document = OpenHTML.html(url);
             System.out.println(document.title());
 
             //get #posts img element
             Elements posts = document.getElementsByClass("post-preview-link");
 
             AtomicReference<Downloader> downloader = new AtomicReference<>();
+            Downloader downloader1 = new Downloader(http + posts.get(0).attr("href"));
 
-            boolean fullLoop =  Downloader.count.get() + posts.size() < MAX_IMG_CNT;
-            System.out.println("fullLoop : " + fullLoop + " count : " + Downloader.count.get() + " posts.size() : " + posts.size() + " MAX_IMG_CNT : " + MAX_IMG_CNT);
+            boolean fullLoop =  imgCnt + posts.size() < MAX_IMG_CNT;
+
+            System.out.println("fullLoop : " + fullLoop + ", count : " + imgCnt + ", posts size() : " + posts.size() + " MAX_IMG_CNT : " + MAX_IMG_CNT);
             if(posts.size() == 0 ){
                 isRunning.set(false);
                 return;
             }
+
             if(fullLoop){
                 // 並列処理for文
                 IntStream.range(0, posts.size()).forEach(i -> {
                     var p = posts.get(i).attr("href");
                     String link = http + p ;
-                    if (Downloader.count.get() < MAX_IMG_CNT ) {
+                    if (imgCnt < MAX_IMG_CNT ) {
                         downloader.set(new Downloader(link));
-                        downloader.get().run();
-//                        System.out.println("MediaDownloader count : " + MediaDownloader.count.get());
+                        downloader.get().start();
                     }
                 });
+                imgCnt += posts.size();
             }else {
-                int n =  MAX_IMG_CNT - Downloader.count.get();
+                int n =  MAX_IMG_CNT - imgCnt;
                 // 並列処理for文
-                IntStream.range(0, n).forEach(i -> {
+                for(int i = 0 ; i < n ; i ++ ){
                     var p = posts.get(i).attr("href");
                     String link = http + p ;
-                    if (Downloader.count.get() < MAX_IMG_CNT ) {
+                    if (imgCnt < MAX_IMG_CNT ) {
                         downloader.set(new Downloader(link));
-                        downloader.get().run();
-//                        System.out.println("MediaDownloader count : " + MediaDownloader.count.get());
+                        downloader.get().start();
                     }
-                });
+                }
+                imgCnt += n ;
             }
 
-            if(Downloader.count.get() >= MAX_IMG_CNT){
+            try{
+                downloader.get().join();
+            }catch (Exception e){
+                System.out.println("Exception");
+                px ++;
+                if(px > 5){
+                    e.printStackTrace();
+                    return;
+                }
+            }
+
+
+            if(imgCnt > MAX_IMG_CNT){
                 isRunning.set(false);
                 System.out.println("finish");
+                Status.setStatusCode(0);
                 Thread.sleep(1000);
             }
 
-            System.out.println(Downloader.count.get() + " images downloaded");
 
-        }catch (FileNotFoundException e){
-            System.out.println("FileNotFoundException");
-            e.printStackTrace();
-        }catch (SSLHandshakeException e){
-            System.out.println("SSLHandshakeException");
-            e.printStackTrace();
-        } catch (ProtocolException e) {
-            System.out.println("ProtocolException");
-            e.printStackTrace();
+            System.out.println("images from : " + url);
+            System.out.println(imgCnt + " images downloaded");
+
         } catch (MalformedURLException e) {
             System.out.println("MalformedURLException");
-            e.printStackTrace();
-        } catch (IOException e) {
-            System.out.println("IOException");
             e.printStackTrace();
         } catch (InterruptedException e) {
             System.out.println("InterruptedException");

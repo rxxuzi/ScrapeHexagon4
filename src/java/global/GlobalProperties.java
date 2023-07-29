@@ -9,7 +9,6 @@ import java.util.Properties;
 public class GlobalProperties {
     /**
      * config内のconfig/SETTING.iniを読み込む
-     * @throws IOException - 読み込み失敗
      */
     public static boolean CUSTOM = false;
     public static boolean MAKE_BIN ;
@@ -18,9 +17,8 @@ public class GlobalProperties {
     public static String PIC_DIR = "./output/pics/";
     public static String JSON_DIR = "./output/json/";
     public static String FILE_FORMAT = ".png";
-    public static boolean DEBUG = false;
     public static String DOMAIN ;
-    public static int MAX_IMG_CNT = 100;
+    public static int MAX_IMG_CNT = 20;
 
     public GlobalProperties() {
 
@@ -28,8 +26,6 @@ public class GlobalProperties {
 
             Properties props = GlobalProperties.load("./config/SETTING.ini");
             var k = props.keySet();
-//            System.out.println(k);
-//            System.out.println(props.get("CustomSetting").toString() + "cs");
             CUSTOM = Boolean.parseBoolean(props.get("CustomSetting").toString());
             if(CUSTOM){
                 MAKE_BIN = Boolean.parseBoolean(props.get("4Bin").toString());
@@ -58,6 +54,12 @@ public class GlobalProperties {
             DOMAIN = "https://danbooru.donmai.us/";
         }else{
             DOMAIN = "https://safebooru.donmai.us/";
+        }
+    }
+
+    public static void Compare(int x){
+        if(x < MAX_IMG_CNT){
+            MAX_IMG_CNT = x;
         }
     }
 
