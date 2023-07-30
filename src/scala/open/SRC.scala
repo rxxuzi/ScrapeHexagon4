@@ -18,6 +18,10 @@ object SRC {
   val isRunning = new AtomicBoolean(true)
 }
 
+/**
+ * This  is a SRC class.
+ * This class is a thread class.
+ */
 final class SRC {
 
   private var TAG = "exusiai_%28arknights%29+pantyhose"

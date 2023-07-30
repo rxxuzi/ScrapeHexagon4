@@ -3,7 +3,6 @@ package crawler;
 import fast.Tag;
 import global.GlobalProperties;
 import global.Status;
-import latest.Downloader;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
@@ -19,9 +18,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *
  * <pre>
  *     {@code
- *       OpenSRC osrc = new OpenSRC(); //create a new crawler
- *       osrc.setTag(exampleSearchedTag); //set tag
- *       osrc.run();//run the crawler
+ *       OpenSRC open = new OpenSRC(); //create a new crawler
+ *       open.setTag(exampleSearchedTag); //set tag
+ *       open.run();//run the crawler
  *     }
  * </pre>
  * @author rxxuzi
@@ -36,7 +35,6 @@ public final class OpenSRC  {
     private static final String BASIC_TAG = "&tags=";
     public static final AtomicBoolean isRunning = new AtomicBoolean(true);
     private String TAG = "exusiai_%28arknights%29";
-    private int px = 0;
     public static int imgCnt = 0;
     public String getTag() {
         return TAG;
@@ -48,6 +46,7 @@ public final class OpenSRC  {
 
     public void run() {
         while (isRunning.get()){
+            int px = 0;
             System.out.println("run : " + isRunning.get() + ", count : " + imgCnt + ", px : " + px);
             sendPage(BASIC_URL + PAGE_COUNT + BASIC_TAG  + TAG);
             PAGE_COUNT++;
@@ -69,7 +68,7 @@ public final class OpenSRC  {
                 //get #posts img element
                 Elements posts = document.getElementsByClass("post-preview-link");
 
-                latest.Downloader[] d;
+                Downloader[] d;
 
 
                 boolean fullLoop =  imgCnt + posts.size() < MAX_IMG_CNT;
@@ -80,19 +79,19 @@ public final class OpenSRC  {
                 }
 
                 if(fullLoop){
-                    d = new latest.Downloader[posts.size()];
+                    d = new Downloader[posts.size()];
 
-                    System.out.println("fullLoop : " + fullLoop + ", count : " + imgCnt + ", posts size : " + posts.size() + " MAX_IMG_CNT : " + MAX_IMG_CNT);
+                    System.out.println("fullLoop : " + true + ", count : " + imgCnt + ", posts size : " + posts.size() + " MAX_IMG_CNT : " + MAX_IMG_CNT);
                     // 並列処理for文
                     for (int i = 0; i < d.length; i++) {
                         var p = posts.get(i).attr("href");
                         String link = http + p ;
                         if (imgCnt < MAX_IMG_CNT ) {
-                            d[i] = (new latest.Downloader(link));
+                            d[i] = (new Downloader(link));
                             d[i].start();
                         }
                     }
-                    for(latest.Downloader dr : d){
+                    for(Downloader dr : d){
                         try {
                             dr.join();
                         } catch (InterruptedException e) {
@@ -103,9 +102,9 @@ public final class OpenSRC  {
                     imgCnt += posts.size();
                 }else {
                     int n =  MAX_IMG_CNT - imgCnt;
-                    System.out.println("fullLoop : " + fullLoop + ", count : " + imgCnt + ", posts size :  " + n + " MAX_IMG_CNT : " + MAX_IMG_CNT);
+                    System.out.println("fullLoop : " + false + ", count : " + imgCnt + ", posts size :  " + n + " MAX_IMG_CNT : " + MAX_IMG_CNT);
 
-                    d = new latest.Downloader[n];
+                    d = new Downloader[n];
 
                     System.out.println("Not max saves!");
                     // 並列処理for文
@@ -113,7 +112,7 @@ public final class OpenSRC  {
                         var p = posts.get(i).attr("href");
                         String link = http + p ;
                         if (imgCnt < MAX_IMG_CNT ) {
-                            d[i] = new latest.Downloader(link);
+                            d[i] = new Downloader(link);
                             d[i].start();
                         }
                     }

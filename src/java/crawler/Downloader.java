@@ -36,8 +36,6 @@ public final class Downloader extends Thread {
     private boolean saveTag = GlobalProperties.TAG2JSON;
     private URL url;
     private String fileName;
-    private Map<String, List<String>> tagMap = new HashMap<>();
-
 
     public Downloader(String srcURL) {
         try{
