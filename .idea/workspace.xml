@@ -8,11 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
+      <change afterPath="$PROJECT_DIR$/docs/SETTING.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/javascript/user/Swing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Crawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/EXCLUSION.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/EXCLUSION.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/SETTING.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/SETTING.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opt/chromedriver_win32.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opt/chromedriver_win32/LICENSE.chromedriver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/opt/icon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/crawler/Downloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Downloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/OpenSRC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/OpenSRC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scala/open/SRC.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/scala/open/SRC.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +79,7 @@
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\src\scala" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\resources" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\.global" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\script" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\config" />
@@ -319,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690680543899</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Hexagon">
+      <created>1690744270457</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1690744270457</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

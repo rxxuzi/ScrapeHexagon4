@@ -56,7 +56,6 @@ public final class Downloader extends Thread {
                 if (imageElement != null) {
                     String imageUrl = imageElement.attr("src");
 //                System.out.println("Image URL: " + imageUrl);
-
                     fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
 
                     // remove fileformat extension
