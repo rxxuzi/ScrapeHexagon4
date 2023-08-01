@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         Core core = new Core();
-        Log.l = Log.getLogNum();
+        Log.length = Log.getLogNum();
 
         JFrame jf = new JFrame();
         ImageIcon icon = new ImageIcon("./data/images/hexagon.png");

@@ -3,6 +3,7 @@ package crawler;
 import data.Archive;
 import data.CheckImage;
 import fast.Del;
+import fast.WordMatcher;
 import global.GlobalProperties;
 import global.Status;
 
@@ -31,6 +32,11 @@ public class Crawler {
         OpenSRC opensrc = new OpenSRC();
         System.out.println("Enter the Word");
         String word = sc.next();
+        if(word.startsWith("?")){
+            WordMatcher search = new WordMatcher();
+        }else{
+
+        }
         long  startTime = System.currentTimeMillis();
         opensrc.setTag(word);
         opensrc.run();

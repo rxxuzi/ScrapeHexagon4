@@ -11,11 +11,11 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Random;
 
-import latest.OpenSRC;
+import crawler.OpenSRC;
+import data.Json;
 import data.Predict;
 import fast.*;
 import data.ReadFromJson;
-import data.Search;
 import jdk.jfr.BooleanFlag;
 
 public class Core extends JPanel {
@@ -233,7 +233,7 @@ public class Core extends JPanel {
         btn[2].addActionListener(e -> {
             Del.allPicDelete();
             Del.allLogDelete();
-            Log.l = 0;
+            Log.length = 0;
 
             mainLabel.setFont(new Font("SansSerif", Font.BOLD, 40));
             mainLabel.setForeground(Color.yellow);
@@ -259,7 +259,7 @@ public class Core extends JPanel {
         lb[2].setBounds(x+w,y,900,h);
         lb[2].setForeground(Color.yellow);
         lb[2].setFont(font);
-        btn[4] = new JButton("Word Search");
+        btn[4] = new JButton("Word WordMatcher");
         btn[4].setFont(font);
         btn[4].setBounds(x,y,w,h);
         btn[4].setForeground(Color.magenta);
@@ -268,10 +268,11 @@ public class Core extends JPanel {
         btn[4].setBackground(Color.BLACK);
         btn[4].addActionListener(e -> {
             String sw = tf[0].getText();
+            Json json = new Json();
             if(!sw.equals("")){
-                Search s = new Search(Tag.find(sw));
-                if(s.isExist){
-                    lb[2].setText("Found , id : " + s.id + " , (" + s.category + ")");
+                if(Json.isExist(Tag.reverse(sw))){
+                    json.search(Tag.reverse(sw));
+                    lb[2].setText("Found , id : " + json.id + " , (" + json.category + ")");
                 }else{
                     Predict predict = new Predict(tf[0].getText());
                     lb[2].setText("Not Found , Predict : " + predict.text);

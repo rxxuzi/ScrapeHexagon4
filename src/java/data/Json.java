@@ -4,67 +4,141 @@ import com.google.gson.*;
 import global.GlobalProperties;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Json {
-    public static Integer ERROR_COUNT = 0;
-    public static void write(String filename, HashMap<String, List<String>> data) {
-        String path  = GlobalProperties.JSON_DIR  +  filename + ".json";
-        File file = new File(path);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        FileWriter fw;
-        try {
-            fw = new FileWriter(file);
-            fw.write(gson.toJson(data));
-            fw.close();
-            System.out.println("Write to file successfully / Size Of List" + data.size());
-        }catch (Exception e){
-            e.printStackTrace();
-            ERROR_COUNT++;
-        }
+
+    private static final String[] PATH = {
+            "./data/GeneralPTag.json",
+            "./data/ArtistTag.json",
+            "./data/CopyrightTag.json",
+            "./data/CharacterTag.json",
+            "./data/GeneralTag.json"
+    };
+
+    public static final int JsonSize = PATH.length;
+
+    public Json() {
+        toArray();
+        System.out.println("Json Array Size -> " + ArraySize);
+        System.out.println("Json Array Size -> " + data.size());
+    }
+    public static List<String> data = new ArrayList<>();
+
+    public static int ArraySize = 0;
+
+    public static String getPath(int p){
+        return PATH[p];
     }
 
-    private int id = 0 ;
-    public void read(String filename){
-        String path  = GlobalProperties.JSON_DIR  +  filename;
-        File file = new File(path);
-        FileReader fr;
-        try {
-            fr = new FileReader(file);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+    public static List<String> toArray() {
+
+        for (String s : PATH) {
+
+            File file = new File(s);
+
+            FileReader fr;
+            try {
+                fr = new FileReader(file);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+
+            BufferedReader reader;
+            reader = new BufferedReader(fr);
+
+            //Parses a JSON file and converts it to a JSON array
+            Gson gson = new Gson();
+            JsonArray jsonArray = gson.fromJson(reader, JsonArray.class);
+
+            ArraySize += jsonArray.size();
+
+            //Json to Array
+            for (int j = 0; j < jsonArray.size(); j++) {
+                data.add(jsonArray.get(j).getAsJsonObject().get("tag").getAsString());
+            }
         }
+        return data;
+    }
 
-        BufferedReader reader;
-        reader = new BufferedReader(fr);
 
-        //Parses a JSON file and converts it to a JSON array
-        Gson gson = new Gson();
-        JsonArray jsonArray = gson.fromJson(reader, JsonArray.class);
+    public boolean isExist = false;
+    public int  id;
+    public String tag;
+    public String category;
+    public void search(String searchWord) {
 
-        System.out.println("Array Size -> " + jsonArray.size());
 
-        //Get Random ID
-        Random random = new Random();
-        id = random.nextInt(jsonArray.size());
+        for (String p : PATH) {
+            File file = new File(p);
+            FileReader fr;
+            try {
+                fr = new FileReader(file);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
 
-        //Retrieve the corresponding id: object from the JSON array
-        JsonObject jsonObject = null;
-        for (JsonElement element : jsonArray) {
-            if (element.getAsJsonObject().get("id").getAsInt() == id) {
-                jsonObject = element.getAsJsonObject();
+            BufferedReader reader;
+            reader = new BufferedReader(fr);
+
+            //Parses a JSON file and converts it to a JSON array
+            Gson gson = new Gson();
+            JsonArray jsonArray = gson.fromJson(reader, JsonArray.class);
+
+
+            //Retrieve the corresponding id: object from the JSON array
+            JsonObject jsonObject = null;
+
+            for (JsonElement element : jsonArray) {
+                if (Objects.equals(element.getAsJsonObject().get("tag").getAsString(), searchWord)) {
+                    isExist = true;
+                    jsonObject = element.getAsJsonObject();
+                    break;
+                }
+            }
+
+            if (isExist) {
+                if (jsonObject != null) {
+                    id = jsonObject.get("id").getAsInt();
+                    tag = jsonObject.get("tag").getAsString();
+                    category = jsonObject.get("category").getAsString();
+                    System.out.println("id -> " + id);
+                    System.out.println("tag -> " + tag);
+                    System.out.println("category -> " + category);
+                }
                 break;
             }
         }
+        if (!isExist) {
+            System.out.println("Not found");
+        }
+    }
 
-        //Get the value of tag from the object with the corresponding id
-//        if(jsonObject != null){
-//            tag = jsonObject.get("tag").getAsString();
-//            String category = jsonObject.get("category").getAsString();
-//            System.out.println("id (" + id + ") -> " +tag + " (" + category + ")"); // example2
-//        }
+    public static boolean isExist(String searchWord) {
+        boolean isExist = false;
+        for (String p : PATH) {
+            File file = new File(p);
+            FileReader fr;
+            try {
+                fr = new FileReader(file);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
 
+            BufferedReader reader;
+            reader = new BufferedReader(fr);
+
+            //Parses a JSON file and converts it to a JSON array
+            Gson gson = new Gson();
+            JsonArray jsonArray = gson.fromJson(reader, JsonArray.class);
+
+            for (JsonElement element : jsonArray) {
+                if (Objects.equals(element.getAsJsonObject().get("tag").getAsString(), searchWord)) {
+                    return true;
+                }
+            }
+
+        }
+        return isExist;
     }
 }

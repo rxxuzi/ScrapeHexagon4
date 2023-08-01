@@ -7,8 +7,7 @@ import java.util.*;
  *
  */
 public class Predict {
-    static List<String> options = JsonToArray.toArray();
-//    static String[] options = ReadFromJson.getJsonArray(0);
+    static List<String> options = Json.toArray();
     static int[] score = new int[options.size()];
 
     static int SCORE;

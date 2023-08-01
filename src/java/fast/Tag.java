@@ -2,6 +2,7 @@ package fast;
 
 public class Tag {
 
+
     public static String translate(String tagName){
 
         return tagName.replaceAll(" ", "_")
@@ -23,7 +24,7 @@ public class Tag {
                 .replaceAll("=", "%3D");
     }
 
-    public static String find(String s) {
+    public static String reverse(String s) {
         return s.replaceAll(" ", "_");
     }
 }

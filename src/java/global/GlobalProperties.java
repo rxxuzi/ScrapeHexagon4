@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.Properties;
 
+/**
+ * このクラスはグローバル変数を設定するクラスです。
+ * @author rxxuzi
+ *
+ */
 public class GlobalProperties {
     /**
      * config内のconfig/SETTING.iniを読み込む
@@ -14,6 +19,8 @@ public class GlobalProperties {
     public static boolean MAKE_BIN ;
     public static boolean TAG2JSON = false;
     public static boolean NSFW = false;
+    public static boolean SAVE_ZIP = true;
+
     public static String PIC_DIR = "./output/pics/";
     public static String JSON_DIR = "./output/json/";
     public static String FILE_FORMAT = ".png";
@@ -35,6 +42,7 @@ public class GlobalProperties {
                 JSON_DIR = props.get("JsonDir").toString();
                 FILE_FORMAT = props.get("FileFormat").toString();
                 MAX_IMG_CNT = Integer.parseInt(props.get("MaxPic").toString());
+                SAVE_ZIP = Boolean.parseBoolean(props.get("ZIP").toString());
             }
         }catch (IOException | NullPointerException e){
             e.printStackTrace();

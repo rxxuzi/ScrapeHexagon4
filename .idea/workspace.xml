@@ -8,15 +8,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change afterPath="$PROJECT_DIR$/docs/SETTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/javascript/user/Swing.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/active/CommonElementsFinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/active/Suggestions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/crawler/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/fast/WordMatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/EXCLUSION.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/EXCLUSION.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/SETTING.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/SETTING.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opt/chromedriver_win32.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/opt/chromedriver_win32/LICENSE.chromedriver" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/opt/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/Downloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Downloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/crawler/Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Crawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/data/Gen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/data/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/data/Json.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/data/JsonToArray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/data/Predict.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/data/Predict.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/data/Search.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/fast/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/fast/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/fast/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/fast/Tag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/main/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/Core.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,13 +96,53 @@
       <recent name="zip" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="fast" />
       <recent name="latest" />
       <recent name="crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.ScalaMain">
-    <configuration name="Crawler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="crawler.Crawler" />
+  <component name="RunManager" selected="アプリケーション.Test">
+    <configuration name="CommonElementsFinder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="active.CommonElementsFinder" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="active.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchV2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fast.SearchV2" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="active.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Suggestions" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="active.Suggestions" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="active.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="crawler.Test" />
       <module name="ScrapeHexagon4" />
       <extension name="coverage">
         <pattern>
@@ -106,51 +154,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="latest.Main" />
+    <configuration name="WordMatcher2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="active.WordMatcher2" />
       <module name="ScrapeHexagon4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="latest.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MkZip" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="zip.MkZip" />
-      <module name="ScrapeHexagon4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="zip.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Online" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="latest.Online" />
-      <module name="ScrapeHexagon4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="latest.Crawler" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScalaMain" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="open.ScalaMain" />
-      <module name="ScrapeHexagon4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="open.*" />
+          <option name="PATTERN" value="active.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -160,11 +169,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="アプリケーション.ScalaMain" />
-        <item itemvalue="アプリケーション.Main" />
-        <item itemvalue="アプリケーション.Online" />
-        <item itemvalue="アプリケーション.Crawler" />
-        <item itemvalue="アプリケーション.MkZip" />
+        <item itemvalue="アプリケーション.Test" />
+        <item itemvalue="アプリケーション.Suggestions" />
+        <item itemvalue="アプリケーション.WordMatcher2" />
+        <item itemvalue="アプリケーション.CommonElementsFinder" />
+        <item itemvalue="アプリケーション.SearchV2" />
       </list>
     </recent_temporary>
   </component>
@@ -331,7 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690744270457</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Hexagon">
+      <created>1690816972343</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1690816972344</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
