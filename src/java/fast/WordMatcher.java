@@ -2,63 +2,44 @@ package fast;
 
 import data.Json;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class WordMatcher {
     private final  List<String> words = Json.toArray();
     public String text;
     public  int score = -1;
     String[] options = {"yes", "no"};
+    private boolean isArray = false;
+    private String[] guessedWords; // 推測した単語群用配列
 
+    /**
+     * 単語を推測するメソッド
+     * 必ず文字列{@code String}で返す
+     * @param searchWord 検索ワード
+     * @return 推測された単語
+     */
     public String AutoComplete(String searchWord){
-        String[] words = searchWord.replaceAll("\\(", "").replaceAll("\\)", "").split("_");
-        System.out.println("WORDS SPLIT ->" + Arrays.toString(words) + " : WORD LENGTH -> " + words.length);
-        if (words.length > 1) {
-            System.out.println();
-
-            List<String>[] lists = new ArrayList[words.length];
-            //仮リスト
-            List<String> tmp;
-            for (int i = 0; i < words.length; i++) {
-                lists[i] = findMatchList(words[i]);
-            }
-            tmp = findCommonElements(lists[0], lists[1]);
-
-            if(words.length > 2) {
-                for (int i = 2; i < words.length; i++) {
-                    tmp = findCommonElements(tmp, lists[i]);
+        String w = find(searchWord);
+        if (isArray) {
+            int bestScore = Integer.MAX_VALUE;
+            for (String guessedWord : guessedWords) {
+                score = Math.abs(searchWord.length() - guessedWord.length());
+                if (score < bestScore) {
+                    bestScore = score;
+                    w = guessedWord;
                 }
-            }
-
-            if(tmp.size() == 1){
-                return tmp.get(0);
-            } else if (tmp.size() > 1){
-                return tmp.toString();
-            }else {
-                return "Sorry, I don't understand.";
-            }
-        }else {
-            if(searchWord.length() > 3){
-                String yel = findBestMatchString(searchWord);
-                if (score <= 3){
-                    System.out.println("Sorry ! this score is "+ score + " by" + yel);
-                    System.out.println("Maybe ->  ");
-                    return findNearestString(yel); //TODO
-                }else {
-                    return yel;
-                }
-            }else{
-                System.out.println("Your String is too short");
-                return findNearestString(searchWord);
             }
         }
+        return w;
     }
     /**
      * wordsのなかから単語を推測する
      * @param searchWord 入力した単語
      * @return 推測された単語
      */
-    public  String find(String searchWord) {
+    public String find(String searchWord) {
         String word = searchWord.replaceAll("\\(", "").replaceAll("\\)", "");
 
         String[] words = word.split("_");
@@ -81,7 +62,8 @@ public class WordMatcher {
                     tmp = findCommonElements(tmp, lists[i]);
                 }
             }
-
+            isArray = true;
+            guessedWords = tmp.toArray(new String[0]);
             return tmp.toString();
         }else {
             if(searchWord.length() > 3){
@@ -116,10 +98,11 @@ public class WordMatcher {
 
     /**
      * 特定の文字列を含む単語を抜き出す
+     *
      * @param searchString 探したい文字列
      * @return 一致した単語をまとめたList
      */
-    private  List<String> findMatchList(String searchString) {
+    private List<String> findMatchList(String searchString) {
         List<String> op = new ArrayList<>();
 
         for (String word : words) {

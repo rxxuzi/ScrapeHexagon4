@@ -8,23 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change afterPath="$PROJECT_DIR$/src/java/active/CommonElementsFinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/active/Suggestions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/crawler/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/fast/WordMatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/SETTING.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/SETTING.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/data/images/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/crawler/Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Crawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/data/Gen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/data/Json.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/data/Json.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/data/JsonToArray.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/data/Predict.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/data/Predict.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/data/Search.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/fast/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/fast/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/fast/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/fast/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/main/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/Core.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/crawler/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/AutoCompleteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/fast/WordMatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/fast/WordMatcher.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +77,7 @@
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\src\scala" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\data\images" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\resources" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\.global" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\script" />
@@ -101,7 +92,20 @@
       <recent name="crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.Test">
+  <component name="RunManager" selected="アプリケーション.AutoCompleteTest">
+    <configuration name="AutoCompleteTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="crawler.AutoCompleteTest" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="crawler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CommonElementsFinder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="active.CommonElementsFinder" />
       <module name="ScrapeHexagon4" />
@@ -141,19 +145,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="crawler.Test" />
-      <module name="ScrapeHexagon4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="crawler.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="WordMatcher2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="active.WordMatcher2" />
       <module name="ScrapeHexagon4" />
@@ -169,7 +160,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="アプリケーション.Test" />
+        <item itemvalue="アプリケーション.AutoCompleteTest" />
         <item itemvalue="アプリケーション.Suggestions" />
         <item itemvalue="アプリケーション.WordMatcher2" />
         <item itemvalue="アプリケーション.CommonElementsFinder" />
@@ -347,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690816972344</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Hexagon">
+      <created>1690927118202</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1690927118202</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

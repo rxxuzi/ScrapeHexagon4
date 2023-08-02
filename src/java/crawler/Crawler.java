@@ -33,7 +33,8 @@ public class Crawler {
         System.out.println("Enter the Word");
         String word = sc.next();
         if(word.startsWith("?")){
-            WordMatcher search = new WordMatcher();
+            WordMatcher wm = new WordMatcher();
+            word = wm.find(word);
         }else{
 
         }
