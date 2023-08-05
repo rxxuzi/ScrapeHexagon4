@@ -1,5 +1,6 @@
 package crawler;
 
+import error.OpenHTMLException;
 import fast.Tag;
 import global.GlobalProperties;
 import global.Status;
@@ -42,9 +43,11 @@ public final class OpenSRC  {
 
     public void setTag(String TAGNAME) {
         this.TAG = Tag.translate(TAGNAME);
+        System.out.println("setTag : " + TAG);
     }
 
-    public void run() {
+    public void run()  {
+        System.out.println("HEllo ! This method is run() from OpenSRC");
         while (isRunning.get()){
             int px = 0;
             System.out.println("run : " + isRunning.get() + ", count : " + imgCnt + ", px : " + px);

@@ -2,6 +2,7 @@ package crawler;
 
 import data.Archive;
 import data.CheckImage;
+import error.OpenHTMLException;
 import fast.Del;
 import fast.WordMatcher;
 import global.GlobalProperties;
@@ -38,14 +39,16 @@ public class Crawler {
         long  startTime = System.currentTimeMillis();
         opensrc.setTag(word);
         opensrc.run();
+
         long endTime = System.currentTimeMillis();
         System.out.println("Total execution time: " + (endTime - startTime));
         CheckImage ch = new CheckImage();
-        if (ch.dirLength() == x){
+        if (ch.dirLength() >= x){
             System.out.println("Download complete");
             Archive  ar = new Archive();
             try {
                 ar.createZip();
+                System.out.println("Save as Zip!!");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

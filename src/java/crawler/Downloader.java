@@ -4,6 +4,7 @@ package crawler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import global.GlobalProperties;
+import global.NotSearch;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -12,6 +13,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,18 +43,16 @@ public final class Downloader extends Thread {
     private String source;
     private String rating;
 
+    private static final List<String >NOT_WORD = NotSearch.getNotSearchWord();
     public static final AtomicInteger skipCnt = new AtomicInteger();
 
     private final List<String> generalTagList = new ArrayList<>();
     private final List<String> characterTagList = new ArrayList<>();
     private final Map<String, List<String>> E = new HashMap<>();
 
-    private final String[] NOT_WORD ={
-            "1boy",
-    };
 
 
-    private static boolean hq = false;
+    private static final boolean hq = true;
 
     public Downloader(String srcURL) {
         try{
@@ -68,23 +68,23 @@ public final class Downloader extends Thread {
                 Document document = OpenHTML.html(url);
 
                 tagList(document);
-
                 //NG WORD
                 if(!skip()){
 
                     //get #image img element
                     Element imageElement;
+                    boolean found = true;
                     if (hq) {
                         try{
-                            imageElement = document.getElementById("image-view-original-link");
-                        }catch (Exception e){
+                            imageElement = document.getElementsByClass("image-view-original-link").first();
+                        }catch (Exception igException){
+                            found = false;
+                            System.out.println("Not found HQ image : " + url);
                             imageElement = document.getElementById("image");
                         }
                     }else{
                         imageElement = document.getElementById("image");
                     }
-
-                    Element info = document.getElementById("post-information");
 
                     Element postsSRC = document.getElementById("post-info-source");
                     if(postsSRC != null){
@@ -98,8 +98,13 @@ public final class Downloader extends Thread {
 
 
                     if (imageElement != null) {
-                        imageUrl = imageElement.attr("src");
-//                System.out.println("Image URL: " + imageUrl);
+                        if(hq && found){
+                            imageUrl = imageElement.attr("href");
+                        } else if (hq && !found){
+                            imageUrl = imageElement.attr("src");
+                        } else{
+                            imageUrl = imageElement.attr("src");
+                        }
                         fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
 
                         // remove fileformat extension
@@ -111,9 +116,11 @@ public final class Downloader extends Thread {
                         downloadImage(imageUrl, filepath);
                         System.out.println("Download image : " + url);
                     } else {
-                        System.out.println("Image not found.");
-                    }
+                        System.out.println("Image not found." + url.toString());
+                        System.out.println(document.getElementById("image").attr("src"));
 
+                        skipCnt.getAndIncrement();
+                    }
                 }else{
                     System.out.println("NG WORD");
                     skipCnt.getAndIncrement();
@@ -121,8 +128,11 @@ public final class Downloader extends Thread {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            saveJson();
         }
     }
+
 
     private boolean skip(){
         for(String word : NOT_WORD){
@@ -163,7 +173,6 @@ public final class Downloader extends Thread {
             }catch (Exception e){
                 e.printStackTrace();
             }
-            saveTag = false;
         }
     }
     // set fileFormat

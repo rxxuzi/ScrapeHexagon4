@@ -1,37 +1,43 @@
 package global;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.*;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Properties;
 
 public class NotSearch {
-    public static LinkedList<String> Searched = new LinkedList<>();
 
-    public NotSearch(){
+    public static final String PATH = "./config/EXCLUSION.txt";
 
-    }
-    public static java.util.Properties load(File file) throws IOException {
-        return load(file.getPath());
-
-    }
-
-    public static java.util.Properties load(String filePath) throws IOException {
-        java.util.Properties properties = new java.util.Properties();
-        FileInputStream fis = null; // ファイルを適当に読み込む
-        InputStreamReader isr = null; // 文字コードを直す
+    public static List<String> getNotSearchWord()  {
+        LinkedList<String> not = new LinkedList<>();
+        File file = new File(PATH);
         try {
-            fis = new FileInputStream(filePath);
-            isr = new InputStreamReader(fis, Charset.defaultCharset());
-            properties.load(isr);
-        } finally { // 問題が起きたらとりあえずストリームを閉じ、残りは呼び出し側に任せる
-            if (isr != null) {
-                fis.close();
-                isr.close();
+
+            if (file.exists()) {
+                FileReader fr = new FileReader(file);
+                BufferedReader br = new BufferedReader(fr);
+                String line;
+                while ((line = br.readLine()) != null) {
+                    if(!line.startsWith("#")){
+                        not.add(line);
+                    }
+                }
+                br.close();
+                fr.close();
+            } else {
+                System.out.println("Not found " + PATH);
             }
+        }catch (IOException ignored) {
         }
-        return properties;
+        return not;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getNotSearchWord().toString());
     }
 }

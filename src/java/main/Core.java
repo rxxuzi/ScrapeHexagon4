@@ -17,6 +17,7 @@ import data.Predict;
 import fast.*;
 import data.*;
 import data.ReadFromJson;
+import global.GlobalProperties;
 import jdk.jfr.BooleanFlag;
 
 public class Core extends JPanel {
@@ -44,7 +45,7 @@ public class Core extends JPanel {
     Draw draw ;
 
     Core(){
-        OpenSRC open = new OpenSRC();
+
 
         draw = new Draw(getWidth(),getHeight());
         for(int i = 0 ; i < lb.length ; i ++ ){
@@ -68,7 +69,11 @@ public class Core extends JPanel {
         mainBtn.addActionListener(e -> {
             if(isFormed1 && isFormed2){
                 mainLabel.setFont(new Font("SansSerif", Font.BOLD, 60));
+                System.out.println(word);
+                GlobalProperties.Compare(imgCount);
+                OpenSRC open = new OpenSRC();
                 open.setTag(word);
+                open.run();
             }else if(!isFormed1 && isFormed2){
                 mainLabel.setFont(new Font("SansSerif", Font.PLAIN, 17));
                 mainLabel.setForeground(Color.red);

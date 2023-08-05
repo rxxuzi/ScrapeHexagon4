@@ -27,4 +27,10 @@ public class Tag {
     public static String reverse(String s) {
         return s.replaceAll(" ", "_");
     }
+
+    public static void main(String[] args) {
+        String name = "\n" +
+                "kafka_(honkai:_star_rail)";
+        System.out.println(translate(name));
+    }
 }
