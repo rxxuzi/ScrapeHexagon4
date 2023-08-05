@@ -55,6 +55,7 @@ public class OpenHTML {
         }
         return html;
     }
+
     public static Document html(URL url) {
         Document html = null;
         try {

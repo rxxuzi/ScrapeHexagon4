@@ -5,6 +5,7 @@ import global.GlobalProperties;
 
 import java.io.*;
 import java.util.*;
+import java.util.Random;
 
 public class Json {
 
@@ -140,5 +141,11 @@ public class Json {
 
         }
         return isExist;
+    }
+
+    public static String getRandomTag() {
+        Random random = new Random();
+        int index = random.nextInt(Json.toArray().size());
+        return data.get(index);
     }
 }

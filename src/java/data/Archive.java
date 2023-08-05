@@ -34,6 +34,7 @@ public class Archive {
     private String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     private String time = new SimpleDateFormat("HH:mm:ss").format(new Date());
 
+
     public Archive(String dir){
         this.dir = new File(dir);
         this.files = this.dir.listFiles();
@@ -79,6 +80,20 @@ public class Archive {
         }else {
             return 0;
         }
+    }
+
+    public static void delete(String path){
+
+        File dir = new File(path);
+        if (dir.isDirectory()){
+            File[] files = dir.listFiles();
+            if(files != null){
+                for (File file : files){
+                    file.delete();
+                }
+            }
+        }
+
     }
 
 

@@ -15,6 +15,7 @@ import crawler.OpenSRC;
 import data.Json;
 import data.Predict;
 import fast.*;
+import data.*;
 import data.ReadFromJson;
 import jdk.jfr.BooleanFlag;
 
@@ -251,15 +252,14 @@ public class Core extends JPanel {
         btn[3].setBackground(Color.BLACK);
         btn[3].addActionListener(e -> {
             int r = random.nextInt(typeOfJson);
-            ReadFromJson get = new ReadFromJson(r);
-            tf[0].setText(get.tag);
+            tf[0].setText(Json.getRandomTag());
         });
 
         y += h;
         lb[2].setBounds(x+w,y,900,h);
         lb[2].setForeground(Color.yellow);
         lb[2].setFont(font);
-        btn[4] = new JButton("Word WordMatcher");
+        btn[4] = new JButton("Search");
         btn[4].setFont(font);
         btn[4].setBounds(x,y,w,h);
         btn[4].setForeground(Color.magenta);
@@ -268,14 +268,16 @@ public class Core extends JPanel {
         btn[4].setBackground(Color.BLACK);
         btn[4].addActionListener(e -> {
             String sw = tf[0].getText();
+            WordMatcher wm = new WordMatcher();
+            wm.text = sw;
+
             Json json = new Json();
             if(!sw.equals("")){
                 if(Json.isExist(Tag.reverse(sw))){
                     json.search(Tag.reverse(sw));
                     lb[2].setText("Found , id : " + json.id + " , (" + json.category + ")");
                 }else{
-                    Predict predict = new Predict(tf[0].getText());
-                    lb[2].setText("Not Found , Predict : " + predict.text);
+                    lb[2].setText("Predict : " + wm.AutoComplete());
                 }
             }else{
                 lb[2].setText("Please input a word.");

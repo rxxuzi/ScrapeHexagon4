@@ -23,9 +23,30 @@ public class WordMatcher {
     public String AutoComplete(String searchWord){
         String w = find(searchWord);
         if (isArray) {
+            System.out.println("ARRAY -> " + Arrays.toString(guessedWords));
             int bestScore = Integer.MAX_VALUE;
+
             for (String guessedWord : guessedWords) {
                 score = Math.abs(searchWord.length() - guessedWord.length());
+                if (score < bestScore) {
+                    bestScore = score;
+                    w = guessedWord;
+                }
+            }
+        }
+        return w;
+    }
+    /**
+     * 単語を推測するメソッド
+     * 必ず文字列{@code String}で返す
+     * @return 推測された単語
+     */
+    public String AutoComplete(){
+        String w = find(text);
+        if (isArray) {
+            int bestScore = Integer.MAX_VALUE;
+            for (String guessedWord : guessedWords) {
+                score = Math.abs(text.length() - guessedWord.length());
                 if (score < bestScore) {
                     bestScore = score;
                     w = guessedWord;
@@ -40,7 +61,9 @@ public class WordMatcher {
      * @return 推測された単語
      */
     public String find(String searchWord) {
-        String word = searchWord.replaceAll("\\(", "").replaceAll("\\)", "");
+
+        String word = searchWord.replaceAll("\\(", "").replaceAll("\\)", "").replaceAll(" ", "_").replaceAll("　", "_");
+        System.out.println("SEARCH WORD ->" + word);
 
         String[] words = word.split("_");
 

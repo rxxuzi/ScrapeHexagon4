@@ -13,7 +13,9 @@ import java.util.Scanner;
 
 public class Crawler {
     public static void main(String[] args) {
-        Del.allPicDelete();
+        Archive.delete(GlobalProperties.PIC_DIR);
+        Archive.delete(GlobalProperties.JSON_DIR);
+
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number of images you want to download: ");
         GlobalProperties properties = new GlobalProperties();
@@ -32,12 +34,7 @@ public class Crawler {
         OpenSRC opensrc = new OpenSRC();
         System.out.println("Enter the Word");
         String word = sc.next();
-        if(word.startsWith("?")){
-            WordMatcher wm = new WordMatcher();
-            word = wm.find(word);
-        }else{
 
-        }
         long  startTime = System.currentTimeMillis();
         opensrc.setTag(word);
         opensrc.run();
@@ -56,6 +53,7 @@ public class Crawler {
             System.out.println("Download Failed" + "\n" + "Status Code : 100");
             Status.setStatusCode(100);
         }
+
 
     }
 }

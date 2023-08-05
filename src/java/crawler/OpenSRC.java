@@ -73,10 +73,12 @@ public final class OpenSRC  {
 
                 boolean fullLoop =  imgCnt + posts.size() < MAX_IMG_CNT;
 
-                if(posts.size() == 0 ){
+                if(posts.isEmpty()){
                     isRunning.set(false);
                     return;
                 }
+
+                Downloader.skipCnt.set(0);
 
                 if(fullLoop){
                     d = new Downloader[posts.size()];
@@ -100,6 +102,7 @@ public final class OpenSRC  {
                     }
 
                     imgCnt += posts.size();
+                    imgCnt -= Downloader.skipCnt.get();
                 }else {
                     int n =  MAX_IMG_CNT - imgCnt;
                     System.out.println("fullLoop : " + false + ", count : " + imgCnt + ", posts size :  " + n + " MAX_IMG_CNT : " + MAX_IMG_CNT);
@@ -125,6 +128,7 @@ public final class OpenSRC  {
                         }
                     }
                     imgCnt += n ;
+                    imgCnt -= Downloader.skipCnt.get();
                 }
 
                 if(imgCnt >= MAX_IMG_CNT){
