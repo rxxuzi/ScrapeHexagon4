@@ -5,7 +5,7 @@
   </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="RunByCommandLine" />
+      <artifact name="Run-ui" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -13,18 +13,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RunByCommandLine.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LICENCE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/active/ImageDL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/main/CrawlerX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Run_ui.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/Run-ui/ScrapeHexagon4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script/DirClear.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/archive/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/archive/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/DeletePics.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script/DeletePics.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/Downloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Downloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/data/CheckImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/data/CheckImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/main/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/Core.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/RunByCommandLine.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +67,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Dot_c/IdeaProjects/ScrapeHexagon4/run",
+    "last_opened_file_path": "C:/Users/Dot_c/IdeaProjects/ScrapeHexagon4/config",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -209,7 +205,7 @@
       <updated>1689937704742</updated>
       <workItem from="1691027564587" duration="14000" />
       <workItem from="1691223849426" duration="1867000" />
-      <workItem from="1691229953514" duration="24356000" />
+      <workItem from="1691229953514" duration="26932000" />
     </task>
     <task id="LOCAL-00001" summary="Hexagon">
       <created>1689950953361</created>
@@ -402,7 +398,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691251285024</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Hexagon">
+      <option name="closed" value="true" />
+      <created>1691295956414</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1691295956414</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
