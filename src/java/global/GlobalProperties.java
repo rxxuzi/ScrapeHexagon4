@@ -25,10 +25,14 @@ public class GlobalProperties {
     public static String JSON_DIR = "./output/json/";
     public static String FILE_FORMAT = ".png";
     public static String DOMAIN = "https://danbooru.donmai.us/";
-    public static int MAX_IMG_CNT = 20;
+    public static int MAX_IMG_CNT = 50;
+
+    public static Status status ;
+
+    private static String CONFIG_PATH = "./config/SETTING.ini";
 
     public GlobalProperties() {
-
+        status = new Status();
         try{
             Properties props = GlobalProperties.load("./config/SETTING.ini");
             var k = props.keySet();
@@ -45,6 +49,7 @@ public class GlobalProperties {
             }
         }catch (IOException | NullPointerException e){
             e.printStackTrace();
+            Status.setStatusCode(301);
         }
 
         File f;

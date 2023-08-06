@@ -5,7 +5,8 @@
   </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Run-ui" />
+      <artifact name="RunByCommandLine" />
+      <artifact name="RunByUserInterface" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -13,14 +14,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Run_ui.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/Run-ui/ScrapeHexagon4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/script/DirClear.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run/Run-CommandLine/RunByCommandLine.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/global/ConfigFinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/global/FIS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/RunByCommandLine.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/RunByCommandLine.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Run_ui.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/RunByUserInterface.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run/RunByCommandLine.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/SETTING.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/SETTING.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/Run-ui/ScrapeHexagon4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/run/Run-ui/ScrapeHexagon4.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/crawler/Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Crawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/global/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/main/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/Core.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/main/CrawlerX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/CrawlerX.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,11 +41,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Record" />
         <option value="Enum" />
         <option value="Swagger" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -62,6 +70,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -89,11 +98,11 @@
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\src\scala" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\config" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\data\images" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\resources" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\.global" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\script" />
-      <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\config" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="zip" />
@@ -105,13 +114,13 @@
       <recent name="crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.Main">
-    <configuration name="Crawler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="crawler.Crawler" />
+  <component name="RunManager" selected="アプリケーション.FIS">
+    <configuration name="ConfigFinder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="global.ConfigFinder" />
       <module name="ScrapeHexagon4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="crawler.*" />
+          <option name="PATTERN" value="global.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,12 +141,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ImageDL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="active.ImageDL" />
+    <configuration name="FIS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="global.FIS" />
       <module name="ScrapeHexagon4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="active.*" />
+          <option name="PATTERN" value="global.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -158,13 +167,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DeletePics.sh" type="ShConfigurationType" temporary="true">
+    <configuration name="run.sh" type="ShConfigurationType" temporary="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/script/DeletePics.sh" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/run.sh" />
       <option name="SCRIPT_OPTIONS" value="" />
       <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
       <option name="INTERPRETER_PATH" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -187,11 +196,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="アプリケーション.FIS" />
+        <item itemvalue="アプリケーション.ConfigFinder" />
         <item itemvalue="アプリケーション.Main" />
+        <item itemvalue="Shell Script.run.sh" />
         <item itemvalue="アプリケーション.CrawlerX" />
-        <item itemvalue="Shell Script.DeletePics.sh" />
-        <item itemvalue="アプリケーション.Crawler" />
-        <item itemvalue="アプリケーション.ImageDL" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +214,11 @@
       <updated>1689937704742</updated>
       <workItem from="1691027564587" duration="14000" />
       <workItem from="1691223849426" duration="1867000" />
-      <workItem from="1691229953514" duration="26932000" />
+      <workItem from="1691229953514" duration="29601000" />
+      <workItem from="1691300724102" duration="1763000" />
+      <workItem from="1691309974603" duration="2788000" />
+      <workItem from="1691315193534" duration="167000" />
+      <workItem from="1691315376636" duration="8429000" />
     </task>
     <task id="LOCAL-00001" summary="Hexagon">
       <created>1689950953361</created>
@@ -406,7 +419,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691295956414</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Hexagon">
+      <option name="closed" value="true" />
+      <created>1691297723543</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1691297723543</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

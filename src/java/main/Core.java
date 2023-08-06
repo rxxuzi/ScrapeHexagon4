@@ -1,5 +1,15 @@
 package main;
 
+import crawler.OpenSRC;
+import data.Json;
+import data.Predict;
+import fast.Del;
+import fast.Log;
+import fast.Tag;
+import fast.WordMatcher;
+import global.Status;
+import jdk.jfr.BooleanFlag;
+
 import javax.swing.*;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.AttributeSet;
@@ -11,22 +21,16 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Random;
 
-import crawler.OpenSRC;
-import data.Json;
-import data.Predict;
-import fast.*;
-import data.*;
-import data.ReadFromJson;
-import global.GlobalProperties;
-import jdk.jfr.BooleanFlag;
-
 public class Core extends JPanel {
     Font font;
+
+    private static final long interval = 1000L;
+    private long lastRefreshTime = 0;
+
     //検索ワードを設定
     public static String word;
     public static int imgCount = 0;
 
-    final int corner = 6;
     static boolean isRunning = true;
     public static double dt = 0.01;
     private long time = 0;
@@ -45,6 +49,7 @@ public class Core extends JPanel {
     Draw draw ;
 
     OpenSRC opensrc = new OpenSRC();
+
 
     Core(){
 
@@ -74,6 +79,7 @@ public class Core extends JPanel {
                 System.out.println(word);
                 CrawlerX cx = new CrawlerX(word, imgCount);
                 cx.start();
+
             }else if(!isFormed1 && isFormed2){
                 mainLabel.setFont(new Font("SansSerif", Font.PLAIN, 17));
                 mainLabel.setForeground(Color.red);
@@ -351,6 +357,10 @@ public class Core extends JPanel {
 
     }
 
+    private void refresh(){
+        mainLabel.setText(Status.getStatusMessage());
+    }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -431,6 +441,10 @@ public class Core extends JPanel {
             Thread.sleep(10);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        }
+        if(System.currentTimeMillis() - lastRefreshTime > interval){
+            refresh();
+            lastRefreshTime = System.currentTimeMillis();
         }
         if(isRunning) {
             dt += 0.04;

@@ -54,7 +54,7 @@ public class Crawler {
             }
         } else if (ch.dirLength() < x){
             System.out.println("Download Failed" + "\n" + "Status Code : 100");
-            Status.setStatusCode(100);
+            Status.setStatusCode(0);
         }
 
 
