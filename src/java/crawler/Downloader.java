@@ -70,7 +70,6 @@ public final class Downloader extends Thread {
                 tagList(document);
                 //NG WORD
                 if(!skip()){
-
                     //get #image img element
                     Element imageElement;
                     boolean found = true;
@@ -100,26 +99,17 @@ public final class Downloader extends Thread {
                     if (imageElement != null) {
                         if(hq && found){
                             imageUrl = imageElement.attr("href");
-                        } else if (hq && !found){
-                            imageUrl = imageElement.attr("src");
                         } else{
                             imageUrl = imageElement.attr("src");
                         }
-                        fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
 
-                        // remove fileformat extension
-                        fileName = fileName.substring(0, fileName.lastIndexOf("."));
-
-                        String fileFormat = fileFormat(imageUrl);
-                        String filepath = fileDir + fileName + fileFormat;
                         // 画像をダウンロードして保存する
-                        downloadImage(imageUrl, filepath);
+                        downloadImage(imageUrl, getFilePath());
+
                         System.out.println("Download image : " + url);
                     } else {
-                        System.out.println("Image not found." + url.toString());
-                        System.out.println(document.getElementById("image").attr("src"));
-
-                        skipCnt.getAndIncrement();
+                        String p = document.getElementById("image").attr("src");
+                        downloadImage(p,getFilePath(p));
                     }
                 }else{
                     System.out.println("NG WORD");
@@ -131,6 +121,27 @@ public final class Downloader extends Thread {
 
             saveJson();
         }
+    }
+
+    private String getFilePath(){
+        fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
+
+        // remove fileformat extension
+        fileName = fileName.substring(0, fileName.lastIndexOf("."));
+
+        String fileFormat = fileFormat(imageUrl);
+
+        return fileDir + fileName + fileFormat;
+    }
+    private String getFilePath(String s){
+        fileName = s.substring(s.lastIndexOf("/") + 1);
+
+        // remove fileformat extension
+        fileName = fileName.substring(0, fileName.lastIndexOf("."));
+
+        String fileFormat = fileFormat(s);
+
+        return fileDir + fileName + fileFormat;
     }
 
 

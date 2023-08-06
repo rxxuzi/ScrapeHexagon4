@@ -1,3 +1,1 @@
-# README
-
-このフォルダはアーカイブ用フォルダです
+# This is ARCHIVE DIRECTORY

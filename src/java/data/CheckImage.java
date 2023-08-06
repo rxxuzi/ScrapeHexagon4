@@ -4,7 +4,7 @@ import global.GlobalProperties;
 
 import java.io.File;
 
-public class CheckImage {
+public final class CheckImage {
     public static void main(String[] args) {
         File dir = new File("./output/pics");
         File[] files = dir.listFiles();

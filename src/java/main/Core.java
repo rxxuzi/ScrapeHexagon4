@@ -44,6 +44,8 @@ public class Core extends JPanel {
     Random random = new Random();
     Draw draw ;
 
+    OpenSRC opensrc = new OpenSRC();
+
     Core(){
 
 
@@ -70,10 +72,8 @@ public class Core extends JPanel {
             if(isFormed1 && isFormed2){
                 mainLabel.setFont(new Font("SansSerif", Font.BOLD, 60));
                 System.out.println(word);
-                GlobalProperties.Compare(imgCount);
-                OpenSRC open = new OpenSRC();
-                open.setTag(word);
-                open.run();
+                CrawlerX cx = new CrawlerX(word, imgCount);
+                cx.start();
             }else if(!isFormed1 && isFormed2){
                 mainLabel.setFont(new Font("SansSerif", Font.PLAIN, 17));
                 mainLabel.setForeground(Color.red);

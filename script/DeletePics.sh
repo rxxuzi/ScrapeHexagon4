@@ -38,7 +38,11 @@ then
 
   if [ -d "$dir" ]; then
     # shellcheck disable=SC2115
-    rm -rf "$dir"/*
+    for file in ./../archive/*; do
+      if [ "${file##*.}" != "md" ]; then
+        rm "$file"
+      fi
+    done
   else
     echo "$dir does not exist"
   fi

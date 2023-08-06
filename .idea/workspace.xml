@@ -13,21 +13,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/run/RunByCommandLine.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/script/ArchiveClear.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RunByCommandLine.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENCE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/active/ImageDL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/main/CrawlerX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/EXCLUSION.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/EXCLUSION.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/SETTING.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/SETTING.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/javascript/user/Swing.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Crawler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/archive/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/archive/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/DeletePics.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script/DeletePics.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/crawler/Downloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Downloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/OpenSRC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/OpenSRC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/error/OpenHTMLException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/error/OpenHTMLException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/fast/DirLength.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/fast/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/fast/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/global/NotSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/NotSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/data/CheckImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/data/CheckImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/main/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/Core.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +40,7 @@
         <option value="HTML File" />
         <option value="Record" />
         <option value="Enum" />
+        <option value="Swagger" />
         <option value="Class" />
       </list>
     </option>
@@ -71,6 +68,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/Dot_c/IdeaProjects/ScrapeHexagon4/run",
@@ -105,18 +103,45 @@
       <recent name="zip" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="main" />
       <recent name="fast" />
       <recent name="latest" />
       <recent name="crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.Crawler">
+  <component name="RunManager" selected="アプリケーション.Main">
     <configuration name="Crawler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="crawler.Crawler" />
       <module name="ScrapeHexagon4" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="crawler.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CrawlerX" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.CrawlerX" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ImageDL" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="active.ImageDL" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="active.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -137,36 +162,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NotSearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="global.NotSearch" />
-      <module name="ScrapeHexagon4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="global.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Tag" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="fast.Tag" />
-      <module name="ScrapeHexagon4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="fast.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ArchiveClear.sh" type="ShConfigurationType" temporary="true">
+    <configuration name="DeletePics.sh" type="ShConfigurationType" temporary="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/script/ArchiveClear.sh" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/script/DeletePics.sh" />
       <option name="SCRIPT_OPTIONS" value="" />
       <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
       <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
@@ -178,13 +177,25 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="SwaggerCodegen">
+      <option name="customTemplatesPath" value="" />
+      <option name="generateToPath" value="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\target\generated-sources\gen" />
+      <option name="generationParameters">
+        <list />
+      </option>
+      <option name="generatorType" value="OPENAPI_GENERATOR_V6" />
+      <option name="jdkPath" value="C:\Users\Dot_c\AppData\Local\JetBrains\IntelliJ IDEA 2023.2\jbr\bin\java.exe" />
+      <option name="language" value="kotlin" />
+      <option name="specificationPath" value="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\resources\javascript\user\t.yaml" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="アプリケーション.Crawler" />
         <item itemvalue="アプリケーション.Main" />
-        <item itemvalue="アプリケーション.NotSearch" />
-        <item itemvalue="Shell Script.ArchiveClear.sh" />
-        <item itemvalue="アプリケーション.Tag" />
+        <item itemvalue="アプリケーション.CrawlerX" />
+        <item itemvalue="Shell Script.DeletePics.sh" />
+        <item itemvalue="アプリケーション.Crawler" />
+        <item itemvalue="アプリケーション.ImageDL" />
       </list>
     </recent_temporary>
   </component>
@@ -198,7 +209,7 @@
       <updated>1689937704742</updated>
       <workItem from="1691027564587" duration="14000" />
       <workItem from="1691223849426" duration="1867000" />
-      <workItem from="1691229953514" duration="17374000" />
+      <workItem from="1691229953514" duration="24356000" />
     </task>
     <task id="LOCAL-00001" summary="Hexagon">
       <created>1689950953361</created>
@@ -383,7 +394,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691236100724</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Hexagon">
+      <option name="closed" value="true" />
+      <created>1691251285024</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1691251285024</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

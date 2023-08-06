@@ -24,13 +24,12 @@ public class GlobalProperties {
     public static String PIC_DIR = "./output/pics/";
     public static String JSON_DIR = "./output/json/";
     public static String FILE_FORMAT = ".png";
-    public static String DOMAIN ;
+    public static String DOMAIN = "https://danbooru.donmai.us/";
     public static int MAX_IMG_CNT = 20;
 
     public GlobalProperties() {
 
         try{
-
             Properties props = GlobalProperties.load("./config/SETTING.ini");
             var k = props.keySet();
             CUSTOM = Boolean.parseBoolean(props.get("CustomSetting").toString());
@@ -71,6 +70,10 @@ public class GlobalProperties {
         if(!dir.exists()){
             dir.mkdirs();
         }
+    }
+
+    public void setFileFormat(String ext){
+        FILE_FORMAT = ext;
     }
 
     public static void Compare(int x){

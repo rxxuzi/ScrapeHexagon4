@@ -1,6 +1,7 @@
 package main;
 
 import fast.Log;
+import global.GlobalProperties;
 
 import javax.swing.*;
 
@@ -12,6 +13,8 @@ public class Main {
     public static void main(String[] args) {
         Core core = new Core();
         Log.length = Log.getLogNum();
+        GlobalProperties gp = new GlobalProperties();
+        gp.makeDir();
 
         JFrame jf = new JFrame();
         ImageIcon icon = new ImageIcon("./data/images/hexagon.png");
