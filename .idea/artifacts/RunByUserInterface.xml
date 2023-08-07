@@ -5,7 +5,6 @@
       <element id="module-output" name="ScrapeHexagon4" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.15.4/jsoup-1.15.4.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.10/gson-2.10.jar" path-in-jar="/" />
-      <element id="dir-copy" path="$PROJECT_DIR$/config" />
     </root>
   </artifact>
 </component>

@@ -26,6 +26,7 @@ public class Core extends JPanel {
 
     private static final long interval = 1000L;
     private long lastRefreshTime = 0;
+    public static long time = 0;
 
     //検索ワードを設定
     public static String word;
@@ -33,7 +34,7 @@ public class Core extends JPanel {
 
     static boolean isRunning = true;
     public static double dt = 0.01;
-    private long time = 0;
+//    private long time = 0;
     public static boolean canMove = false;
     private final int typeOfJson = 4;
     @BooleanFlag
