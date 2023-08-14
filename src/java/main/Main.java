@@ -19,13 +19,6 @@ public class Main {
         JFrame jf = new JFrame();
         ImageIcon icon = new ImageIcon("./data/images/hexagon.png");
 
-        if (System.getProperty("os.name").toLowerCase().startsWith("mac")) {
-            System.out.println("FUCK MAC OS");
-        } else {
-            System.out.println("Hello World!");
-        }
-
-
         jf.setTitle("Scrape Hexagon");
         jf.setSize(WIDTH, HEIGHT);
         jf.setLocation(0, 0);

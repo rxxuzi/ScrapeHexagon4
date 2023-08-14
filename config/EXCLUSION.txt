@@ -1,3 +1,3 @@
 # This is exclusion word
 # Please break it up with a new line.
-gay
+test

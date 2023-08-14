@@ -20,7 +20,7 @@ public class GlobalProperties {
     public static boolean TAG2JSON = false;
     public static boolean NSFW = false;
     public static boolean SAVE_ZIP = true;
-
+    public static String BASE_DIR = "./output/base/";
     public static String PIC_DIR = "./output/pics/";
     public static String JSON_DIR = "./output/json/";
     public static String FILE_FORMAT = ".png";

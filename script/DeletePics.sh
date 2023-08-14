@@ -28,6 +28,15 @@ else
   echo "$dir does not exist"
 fi
 
+dir="./../output/base"
+
+if [ -d "$dir" ]; then
+    echo "Deleting all files in $dir"
+    rm -rf "$dir"/*
+else
+    echo "$dir does not exist"
+fi
+
 # read y/n
 read -p "Do you want to delete the zip files? (y/n)" -n 1 -r
 

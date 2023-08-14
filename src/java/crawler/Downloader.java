@@ -33,7 +33,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Code snippet from OpenSRC.java
  *
  */
-public final class Downloader extends Thread {
+public class Downloader extends Thread {
     private final static String fileDir = GlobalProperties.PIC_DIR;
     private final static String ext = GlobalProperties.FILE_FORMAT;
     private boolean saveTag = GlobalProperties.TAG2JSON;
