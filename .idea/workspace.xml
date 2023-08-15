@@ -14,14 +14,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change afterPath="$PROJECT_DIR$/src/java/_base18/Downloader18.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/_base18/Main18.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/error/ErrorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scala/_base18/OpenDL18.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scala/_base18/OpenMg.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/EXCLUSION.txt" beforeDir="false" afterPath="$PROJECT_DIR$/config/EXCLUSION.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/DeletePics.sh" beforeDir="false" afterPath="$PROJECT_DIR$/script/DeletePics.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/Downloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/Downloader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/_base18/Downloader18.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/_base18/Main18.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/crawler/OpenHTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/OpenHTML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/error/OpenHTMLException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/error/OpenHTMLException.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +74,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dot_c/IdeaProjects/ScrapeHexagon4/config&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dot_c/IdeaProjects/ScrapeHexagon4/src/scala&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -111,26 +112,13 @@
       <recent name="crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.Main18">
-    <configuration name="FIS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="global.FIS" />
+  <component name="RunManager" selected="アプリケーション.OpenMg">
+    <configuration name="ErrorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="error.ErrorTest" />
       <module name="ScrapeHexagon4" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="global.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.Main" />
-      <module name="ScrapeHexagon4" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.*" />
+          <option name="PATTERN" value="error.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -140,6 +128,19 @@
     </configuration>
     <configuration name="Main18" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="_base18.Main18" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="_base18.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OpenMg" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="_base18.OpenMg" />
       <module name="ScrapeHexagon4" />
       <extension name="coverage">
         <pattern>
@@ -195,11 +196,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="アプリケーション.Main18" />
+        <item itemvalue="アプリケーション.OpenMg" />
+        <item itemvalue="アプリケーション.ErrorTest" />
         <item itemvalue="Shell Script.DeletePics.sh" />
+        <item itemvalue="アプリケーション.Main18" />
         <item itemvalue="Shell Script.DirClear.sh" />
-        <item itemvalue="アプリケーション.Main" />
-        <item itemvalue="アプリケーション.FIS" />
       </list>
     </recent_temporary>
   </component>
@@ -220,7 +221,10 @@
       <workItem from="1691315376636" duration="11088000" />
       <workItem from="1691439654459" duration="902000" />
       <workItem from="1691850952120" duration="2208000" />
-      <workItem from="1692008955976" duration="9201000" />
+      <workItem from="1692008955976" duration="10658000" />
+      <workItem from="1692021165287" duration="2344000" />
+      <workItem from="1692024750431" duration="249000" />
+      <workItem from="1692081168479" duration="3742000" />
     </task>
     <task id="LOCAL-00001" summary="Hexagon">
       <created>1689950953361</created>
@@ -445,7 +449,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691440190760</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Hexagon">
+      <option name="closed" value="true" />
+      <created>1692018422854</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1692018422855</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

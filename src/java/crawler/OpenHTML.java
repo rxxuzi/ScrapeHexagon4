@@ -14,6 +14,45 @@ public class OpenHTML {
     public static final String page = "https://www.java.com/ja/";
     public static boolean isRunning = true;
 
+    public String Page(String page) {
+        URL url;
+        try {
+            url = new URL(page);
+        }catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+        StringBuilder htmlContent;
+        try {
+            // HTTP URL Connection
+            HttpURLConnection openConnection =
+                    (HttpURLConnection) url.openConnection();
+            openConnection.setAllowUserInteraction(false);
+            openConnection.setInstanceFollowRedirects(true);
+            openConnection.setRequestMethod("GET");
+            openConnection.connect();
+
+            int httpStatusCode = openConnection.getResponseCode();
+            if (httpStatusCode != HttpURLConnection.HTTP_OK) {
+                throw new Exception("HTTP Status " + httpStatusCode);
+            }
+            // Input Stream
+            DataInputStream dataInStream = new DataInputStream(openConnection.getInputStream());
+
+            // Read HTML content
+            BufferedReader reader = new BufferedReader(new InputStreamReader(openConnection.getInputStream()));
+            htmlContent = new StringBuilder();
+            String line;
+            //Read html one line at a time
+            while ((line = reader.readLine()) != null) {
+                htmlContent.append(line);
+            }
+            reader.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return htmlContent.toString();
+    }
+
 
     public Document html(String page) {
         URL url;
