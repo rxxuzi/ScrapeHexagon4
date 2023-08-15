@@ -3,7 +3,8 @@ const context = canvas.getContext("2d");
 
 const centerX = canvas.width / 2;
 const centerY = canvas.height / 2;
-const radius = 50;
+const radius = 60;
+const speed = 0.003 ; // 0.001 seconds per frame
 const sides = 6;
 const angleIncrement = (Math.PI * 2) / sides;
 
@@ -27,10 +28,7 @@ function drawHexagon(x, y, radius, sides, color, angle) {
 
 function animate() {
     context.clearRect(0, 0, canvas.width, canvas.height);
-    const speed = 0.002 ; // 0.001 seconds per frame
     const time = Date.now() * speed; // Current time in seconds
-    const radiusOffset = 150; // Offset for the 8-shaped movement
-
     const x = [];
     const y = [];
 
@@ -38,8 +36,7 @@ function animate() {
         x[i] = centerX +  Math.cos(time + (Math.PI * 2) / 3 * i) * radius * 2;
         y[i] = centerY +  Math.sin(time + (Math.PI * 2) / 3 * i) * radius ;
     }
-    const magentaAngle = time;
-    drawHexagon(x[0], y[0], radius, sides, "magenta", magentaAngle);
+    drawHexagon(x[0], y[0], radius, sides, "magenta", time);
 
     const yellowAngle = time + (Math.PI * 2) / 3; // 120 degrees phase shift
     drawHexagon(x[1], y[1], radius, sides, "yellow", yellowAngle);

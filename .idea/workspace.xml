@@ -14,21 +14,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change afterPath="$PROJECT_DIR$/resources/infinity.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/javascript/ui/core.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/javascript/user/hexagon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/javascript/user/sample.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/style/star.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/style/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/SETTING.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/SETTING.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sample.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sample.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/error/ErrorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/error/ErrorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/error/OpenHTMLException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/error/OpenHTMLException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/fast/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/fast/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scala/_base18/OpenDL18.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/scala/_base18/OpenDL18.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scala/_base18/OpenMg.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/scala/_base18/OpenMg.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/user/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/user/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/user/javascript/main/hexagon.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/user/javascript/main/hexagon.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/user/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/user/style/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,9 +37,9 @@
         <option value="Enum" />
         <option value="Swagger" />
         <option value="Class" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -105,11 +94,11 @@
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\src\scala" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\web\user" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\config" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\data\images" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\resources" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\.global" />
-      <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\script" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="zip" />
@@ -121,13 +110,26 @@
       <recent name="crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.ErrorTest">
+  <component name="RunManager" selected="アプリケーション.Main">
     <configuration name="ErrorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="error.ErrorTest" />
       <module name="ScrapeHexagon4" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="error.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="ScrapeHexagon4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -176,21 +178,6 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="DirClear.sh" type="ShConfigurationType" temporary="true">
-      <option name="SCRIPT_TEXT" value="" />
-      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/script/DirClear.sh" />
-      <option name="SCRIPT_OPTIONS" value="" />
-      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/script" />
-      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
-      <option name="INTERPRETER_PATH" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="EXECUTE_IN_TERMINAL" value="true" />
-      <option name="EXECUTE_SCRIPT_FILE" value="true" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="SwaggerCodegen">
       <option name="customTemplatesPath" value="" />
       <option name="generateToPath" value="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\target\generated-sources\gen" />
@@ -205,11 +192,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="アプリケーション.Main" />
         <item itemvalue="アプリケーション.ErrorTest" />
         <item itemvalue="アプリケーション.OpenMg" />
         <item itemvalue="Shell Script.DeletePics.sh" />
         <item itemvalue="アプリケーション.Main18" />
-        <item itemvalue="Shell Script.DirClear.sh" />
       </list>
     </recent_temporary>
   </component>
@@ -234,7 +221,7 @@
       <workItem from="1692021165287" duration="2344000" />
       <workItem from="1692024750431" duration="249000" />
       <workItem from="1692081168479" duration="6892000" />
-      <workItem from="1692096966721" duration="12037000" />
+      <workItem from="1692096966721" duration="18050000" />
     </task>
     <task id="LOCAL-00001" summary="Hexagon">
       <created>1689950953361</created>
@@ -475,7 +462,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692087006957</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Hexagon">
+      <option name="closed" value="true" />
+      <created>1692114879654</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1692114879654</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
