@@ -14,15 +14,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change afterPath="$PROJECT_DIR$/src/java/error/ErrorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scala/_base18/OpenDL18.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scala/_base18/OpenMg.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/infinity.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/javascript/ui/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/javascript/user/hexagon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/javascript/user/sample.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/style/star.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/style/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/_base18/Downloader18.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/_base18/Main18.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/OpenHTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/OpenHTML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/SETTING.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/SETTING.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sample.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sample.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/error/ErrorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/error/ErrorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/java/error/OpenHTMLException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/error/OpenHTMLException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/fast/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/fast/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/global/GlobalProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scala/_base18/OpenDL18.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/scala/_base18/OpenDL18.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scala/_base18/OpenMg.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/scala/_base18/OpenMg.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +47,10 @@
         <option value="Record" />
         <option value="Enum" />
         <option value="Swagger" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -66,28 +74,29 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dot_c/IdeaProjects/ScrapeHexagon4/src/scala&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;アーティファクト&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Dot_c/IdeaProjects/ScrapeHexagon4/src/scala",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "アーティファクト",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="crawler" />
@@ -112,7 +121,7 @@
       <recent name="crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.OpenMg">
+  <component name="RunManager" selected="アプリケーション.ErrorTest">
     <configuration name="ErrorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="error.ErrorTest" />
       <module name="ScrapeHexagon4" />
@@ -196,8 +205,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="アプリケーション.OpenMg" />
         <item itemvalue="アプリケーション.ErrorTest" />
+        <item itemvalue="アプリケーション.OpenMg" />
         <item itemvalue="Shell Script.DeletePics.sh" />
         <item itemvalue="アプリケーション.Main18" />
         <item itemvalue="Shell Script.DirClear.sh" />
@@ -224,7 +233,8 @@
       <workItem from="1692008955976" duration="10658000" />
       <workItem from="1692021165287" duration="2344000" />
       <workItem from="1692024750431" duration="249000" />
-      <workItem from="1692081168479" duration="3742000" />
+      <workItem from="1692081168479" duration="6892000" />
+      <workItem from="1692096966721" duration="12037000" />
     </task>
     <task id="LOCAL-00001" summary="Hexagon">
       <created>1689950953361</created>
@@ -457,7 +467,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692018422855</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Hexagon">
+      <option name="closed" value="true" />
+      <created>1692087006957</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1692087006957</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

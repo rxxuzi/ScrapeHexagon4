@@ -4,8 +4,8 @@ import crawler.OpenHTML
 import global.GlobalProperties
 
 import java.io.File
-import java.util
 import java.util.{Objects, Scanner}
+import scala.Console.GREEN
 import scala.collection.convert.ImplicitConversions._
 import scala.collection.mutable
 import scala.io.StdIn
@@ -27,13 +27,13 @@ object OpenMg {
       val d18s = mutable.ListBuffer.empty[OpenDL18]
       println(pages.size)
 
+
       pages.zipWithIndex.foreach { case (page, _) =>
         val title = page.getElementsByTag("span").text
         val dir = new File(GlobalProperties.BASE_DIR + title)
 
-        if (dir.exists) {
-          println("Skip")
-        } else {
+        if (dir.exists) println("Skip")
+        else {
           val link = page.select("a").attr("abs:href")
           d18s += new OpenDL18(link, true)
         }
@@ -43,5 +43,8 @@ object OpenMg {
       d18s.foreach(_.join())
 
     }
+    println( GREEN + "Done")
+    scanner.close()
+    System.exit(0)
   }
 }

@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+body {
+    background-color: #0a0a0a;
+    color: lime;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*height: 100vh;*/
+    height:100%;
+    width:100%;
+    padding-bottom: 50px;
+}
+
+canvas{
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.block{
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+}
+
+.btn-1 {
+    background: rgb(6,14,131);
+    background: linear-gradient(0deg, rgba(6,14,131,1) 0%, rgba(12,25,180,1) 100%);
+    border: none;
+}
+.btn-1:hover {
+    background: rgb(0,3,255);
+    background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
+}
+
+.sh4 {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+}
+button {
+    margin: 20px;
+}
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    /*background: transparent;*/
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+
+.title {
+    font-size: 500%;
+    display: flex;
+}
+
+a:link, a:visited {
+    color: aqua;
+    text-decoration: none;
+}
+
+.text-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 500px;
+    height: 40px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 10px;
+}
+

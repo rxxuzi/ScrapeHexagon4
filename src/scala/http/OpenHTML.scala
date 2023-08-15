@@ -20,7 +20,7 @@ object OpenHTML {
       // Input Stream
       val dataInStream = new DataInputStream(openConnection.getInputStream)
       // Output Stream
-      val dataOutStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("./resources/sample.html")))
+      val dataOutStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("./resources/index.html")))
       // Read Data
       val b = new Array[Byte](4096)
       var readByte = 0

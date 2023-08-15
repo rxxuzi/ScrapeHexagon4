@@ -1,5 +1,7 @@
 package fast;
 
+import global.GlobalProperties;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 public class Log{
 
     public static int length =  0;
-    private static final String DirPath = "./resources/Log/";
+    private static final String DirPath = GlobalProperties.LOG_DIR;
     ArrayList<String> log = new ArrayList<>();
 
     public static void write(String content) {
@@ -21,8 +23,7 @@ public class Log{
             bw.newLine();
             bw.close();
             fw.close();
-        }catch (Exception e){
-            e.printStackTrace();
+        }catch (Exception ignored){
         }
     }
 
@@ -36,15 +37,13 @@ public class Log{
             bw.newLine();
             bw.close();
             fw.close();
-        }catch (Exception e){
-            e.printStackTrace();
+        }catch (Exception ignored){
         }
     }
 
     public static void error(Exception e) {
         File file = new File(DirPath + "error-log"  + ".log");
         try {
-            //追試可否
             FileWriter fw = new FileWriter(file , true);
             BufferedWriter bw = new BufferedWriter(fw);
             //stack-trace

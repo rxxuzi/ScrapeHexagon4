@@ -10,6 +10,8 @@ import java.net.{MalformedURLException, URL}
 import java.util
 import java.util.Objects
 import scala.Console._
+import scala.collection.convert.ImplicitConversions._
+import scala.jdk.CollectionConverters._
 import scala.util.control.Breaks.break
 
 object OpenDL18 {
@@ -78,10 +80,12 @@ class OpenDL18 extends Thread {
         val main = document.getElementById("post-hentai")
         if (main != null) {
           val pics = main.getElementsByTag("img")
-          for(i <- 0 until pics.size()){
-            imageUrl = pics.get(i).attr("src")
-            fileName = pics.get(i).attr("alt")
-            if (saveImage) saved = OpenDL18.downloadImage(imageUrl, getFilePath)
+          pics.foreach{ pic =>
+            val imageUrl = pic.attr("src")
+            val fileName = pic.attr("alt")
+            if (saveImage) {
+              saved = OpenDL18.downloadImage(imageUrl, getFilePath)
+            }
           }
         }
       }
@@ -93,18 +97,24 @@ class OpenDL18 extends Thread {
     }
   }
 
-  private def andSearch = {
-    var b = false
-    if (OpenDL18.and.length >= 1) for (a <- OpenDL18.and) {
-      if (tags.contains(a)) b = true
-      else {
-        b = false
-        break //todo: break is not supported
-      }
+  private def andSearch: Boolean = {
+    val allTagsContained = OpenDL18.and.forall(tags.contains)
+    saved = OpenDL18.and.isEmpty || allTagsContained
+    saved
+  }
+
+
+  private def safeFileName(s : String) : String ={
+    val replacements = Map(
+      ":" -> "_", "?" -> "_", "\\" -> "_", "/" -> "_",
+      "*" -> "_", "\"" -> "_", ">" -> "_", "<" -> "_", "|" -> "_"
+    )
+
+    val safeString = replacements.foldLeft(s) { case (result, (target, replacement)) =>
+      result.replace(target, replacement)
     }
-    else b = true
-    saved = b
-    b
+
+    safeString
   }
 
   def skip: Boolean = {
@@ -126,7 +136,7 @@ class OpenDL18 extends Thread {
   }
 
   private def mkdir(altName: String): Unit = {
-    val dir = new File(OpenDL18.baseDir + altName)
+    val dir = new File(OpenDL18.baseDir + safeFileName(altName))
     if (!dir.exists) if (dir.mkdir) {
       makeddir = true
     }

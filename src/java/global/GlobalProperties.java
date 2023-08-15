@@ -23,7 +23,9 @@ public class GlobalProperties {
     public static String BASE_DIR = "./output/base/";
     public static String PIC_DIR = "./output/pics/";
     public static String JSON_DIR = "./output/json/";
+    public static String PDF_DIR = "./output/pdf/";
     public static String FILE_FORMAT = ".png";
+    public static String LOG_DIR = "./output/log";
     public static String DOMAIN = "https://danbooru.donmai.us/";
     public static int MAX_IMG_CNT = 50;
 
@@ -43,6 +45,9 @@ public class GlobalProperties {
                 NSFW = Boolean.parseBoolean(props.get("NSFW").toString());
                 PIC_DIR = props.get("PicDir").toString();
                 JSON_DIR = props.get("JsonDir").toString();
+                BASE_DIR = props.get("BaseDir").toString();
+                PDF_DIR = props.get("PDFDir").toString();
+                LOG_DIR = props.get("LogDir").toString();
                 FILE_FORMAT = props.get("FileFormat").toString();
                 MAX_IMG_CNT = Integer.parseInt(props.get("MaxPic").toString());
                 SAVE_ZIP = Boolean.parseBoolean(props.get("ZIP").toString());
