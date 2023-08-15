@@ -13,12 +13,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/user/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/user/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/user/javascript/main/hexagon.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/user/javascript/main/hexagon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/user/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/user/style/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,11 +89,11 @@
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\src\scala" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\docs" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\web\user" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\config" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\data\images" />
       <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\resources" />
-      <recent name="C:\Users\Dot_c\IdeaProjects\ScrapeHexagon4\.global" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="zip" />
@@ -221,7 +216,7 @@
       <workItem from="1692021165287" duration="2344000" />
       <workItem from="1692024750431" duration="249000" />
       <workItem from="1692081168479" duration="6892000" />
-      <workItem from="1692096966721" duration="18050000" />
+      <workItem from="1692096966721" duration="18829000" />
     </task>
     <task id="LOCAL-00001" summary="Hexagon">
       <created>1689950953361</created>
@@ -470,7 +465,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692114879654</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Hexagon">
+      <option name="closed" value="true" />
+      <created>1692116311018</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1692116311018</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
