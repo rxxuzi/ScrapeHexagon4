@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * このクラスはグローバル変数を設定するクラスです。
@@ -28,6 +28,8 @@ public class GlobalProperties {
     public static String LOG_DIR = "./output/log";
     public static String DOMAIN = "https://danbooru.donmai.us/";
     public static int MAX_IMG_CNT = 50;
+
+    private static List<String> paths = new ArrayList<>();
 
     public static Status status ;
 
@@ -72,13 +74,22 @@ public class GlobalProperties {
         }else{
             DOMAIN = "https://safebooru.donmai.us/";
         }
+        paths.add(BASE_DIR);
+        paths.add(JSON_DIR);
+        paths.add(LOG_DIR);
+        paths.add(PDF_DIR);
+        paths.add(PIC_DIR);
+
     }
 
     public void makeDir(){
-        String path = "./archive";
-        File dir = new File(path);
-        if(!dir.exists()){
-            dir.mkdirs();
+        for (String path : paths) {
+            File dir = new File(path);
+            if(dir.isDirectory()){
+                if(!dir.exists()){
+                    dir.mkdirs();
+                }
+            }
         }
     }
 
