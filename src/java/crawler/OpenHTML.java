@@ -10,17 +10,15 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class OpenHTML {
+/**
+ * このクラスはHTTP GETをするクラス
+ * @author rxxuzi
+ */
+public final class OpenHTML {
     public static final String page = "https://www.java.com/ja/";
     public static boolean isRunning = true;
 
-    public String Page(String page) {
-        URL url;
-        try {
-            url = new URL(page);
-        }catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
+    public static String Page(URL url) {
         StringBuilder htmlContent;
         try {
             // HTTP URL Connection
@@ -28,9 +26,16 @@ public class OpenHTML {
                     (HttpURLConnection) url.openConnection();
             openConnection.setAllowUserInteraction(false);
             openConnection.setInstanceFollowRedirects(true);
+            // GET Request
             openConnection.setRequestMethod("GET");
+            // Connect
             openConnection.connect();
 
+            /*
+              HTTP Status Code
+              200 : OK
+              400 : Bad Request
+             */
             int httpStatusCode = openConnection.getResponseCode();
             if (httpStatusCode != HttpURLConnection.HTTP_OK) {
                 throw new Exception("HTTP Status " + httpStatusCode);
@@ -61,72 +66,12 @@ public class OpenHTML {
         }catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
-        Document html = null;
 
-        try {
-            // HTTP URL Connection
-            HttpURLConnection openConnection =
-                    (HttpURLConnection) url.openConnection();
-            openConnection.setAllowUserInteraction(false);
-            openConnection.setInstanceFollowRedirects(true);
-            openConnection.setRequestMethod("GET");
-            openConnection.connect();
-
-            int httpStatusCode = openConnection.getResponseCode();
-            if (httpStatusCode != HttpURLConnection.HTTP_OK) {
-                throw new Exception("HTTP Status " + httpStatusCode);
-            }
-            // Input Stream
-            DataInputStream dataInStream = new DataInputStream(openConnection.getInputStream());
-
-            // Read HTML content
-            BufferedReader reader = new BufferedReader(new InputStreamReader(openConnection.getInputStream()));
-            StringBuilder htmlContent = new StringBuilder();
-            String line;
-            //Read html one line at a time
-            while ((line = reader.readLine()) != null) {
-                htmlContent.append(line);
-            }
-            html = Jsoup.parse(htmlContent.toString());// Parse HTML content
-            reader.close();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return html;
+        return Jsoup.parse(Page(url));
     }
 
     public static Document html(URL url) {
-        Document html = null;
-        try {
-            // HTTP URL Connection
-            HttpURLConnection openConnection =
-                    (HttpURLConnection) url.openConnection();
-            openConnection.setAllowUserInteraction(false);
-            openConnection.setInstanceFollowRedirects(true); // true
-            openConnection.setRequestMethod("GET"); // GET or POST
-            openConnection.connect(); // connect
-
-            int httpStatusCode = openConnection.getResponseCode();
-            if (httpStatusCode != HttpURLConnection.HTTP_OK) {
-                throw new Exception("HTTP Status " + httpStatusCode);
-            }
-            // Input Stream
-            DataInputStream dataInStream = new DataInputStream(openConnection.getInputStream());
-
-            // Read HTML content
-            BufferedReader reader = new BufferedReader(new InputStreamReader(openConnection.getInputStream()));
-            StringBuilder htmlContent = new StringBuilder();
-            String line;
-            //Read html one line at a time
-            while ((line = reader.readLine()) != null) {
-                htmlContent.append(line);
-            }
-            html = Jsoup.parse(htmlContent.toString());// Parse HTML content
-            reader.close();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return html;
+        return Jsoup.parse(Page(url));
     }
 
 }

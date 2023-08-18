@@ -14,8 +14,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/gui.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/gui.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/crawler/OpenHTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/OpenHTML.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scala/_base18/OpenDL18.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/scala/_base18/OpenDL18.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scala/_base18/OpenMg.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/scala/_base18/OpenMg.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +113,7 @@
       <recent name="crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.Main">
+  <component name="RunManager" selected="アプリケーション.OpenMg">
     <configuration name="ErrorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="error.ErrorTest" />
       <module name="ScrapeHexagon4" />
@@ -190,11 +195,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="アプリケーション.OpenMg" />
+        <item itemvalue="Shell Script.DeletePics.sh" />
         <item itemvalue="アプリケーション.Main" />
         <item itemvalue="アプリケーション.FIS" />
         <item itemvalue="アプリケーション.ErrorTest" />
-        <item itemvalue="アプリケーション.OpenMg" />
-        <item itemvalue="Shell Script.DeletePics.sh" />
       </list>
     </recent_temporary>
   </component>
@@ -220,7 +225,9 @@
       <workItem from="1692024750431" duration="249000" />
       <workItem from="1692081168479" duration="6892000" />
       <workItem from="1692096966721" duration="20991000" />
-      <workItem from="1692122108664" duration="3258000" />
+      <workItem from="1692122108664" duration="4495000" />
+      <workItem from="1692169828576" duration="114000" />
+      <workItem from="1692319159588" duration="1425000" />
     </task>
     <task id="LOCAL-00001" summary="Hexagon">
       <created>1689950953361</created>
@@ -501,7 +508,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692155959043</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Hexagon">
+      <option name="closed" value="true" />
+      <created>1692156978221</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1692156978221</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Hexagon">
+      <option name="closed" value="true" />
+      <created>1692158120956</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1692158120956</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -5,7 +5,7 @@ import global.GlobalProperties
 
 import java.io.File
 import java.util.{Objects, Scanner}
-import scala.Console.GREEN
+import scala.Console.{GREEN, YELLOW}
 import scala.collection.convert.ImplicitConversions._
 import scala.collection.mutable
 import scala.io.StdIn
@@ -17,7 +17,8 @@ object OpenMg {
     val tag = scanner.nextLine
     val v_url = "https://momon-ga.com/tag/" + tag + "/page/"
 
-    val maxPage = 2
+    print(YELLOW + "MAX PAGES")
+    val maxPage = scanner.nextInt()
     for (i <- 1 to maxPage) {
       val url = v_url + i
       val openHTML = new OpenHTML

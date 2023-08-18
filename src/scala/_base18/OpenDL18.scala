@@ -52,7 +52,7 @@ object OpenDL18 {
 class OpenDL18 extends Thread {
   private var fileDir = GlobalProperties.PIC_DIR
   private var url: URL = null
-  private var fileName: String = null
+  private var fileName: String = "sample.png"
   private var imageUrl: String = null
   private[_base18] var document: Document = null
   private[_base18] var makeddir = false
@@ -80,12 +80,17 @@ class OpenDL18 extends Thread {
         val main = document.getElementById("post-hentai")
         if (main != null) {
           val pics = main.getElementsByTag("img")
-          pics.foreach{ pic =>
-            val imageUrl = pic.attr("src")
-            val fileName = pic.attr("alt")
-            if (saveImage) {
+          if(pics != null){
+            for(i <- 0 until pics.size()) {
+              imageUrl = pics.get(i).attr("src")
+              fileName = pics.get(i).attr("alt")
+              if (saveImage) {
               saved = OpenDL18.downloadImage(imageUrl, getFilePath)
+              }
             }
+          }else{
+            print(RED + "ERROR ")
+            System.exit(2)
           }
         }
       }
@@ -143,10 +148,16 @@ class OpenDL18 extends Thread {
     fileDir = OpenDL18.baseDir + altName + "/"
   }
 
-  private def getFilePath = {
+  private def getFilePath: String = {
     fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1)
     fileName = fileName.substring(0, fileName.lastIndexOf("."))
     val fileFormat = OpenDL18.fileFormat(imageUrl)
     fileDir + fileName + fileFormat
   }
+//  private def getFilePath(imageUrl : String): String = {
+//    var file_Name = imageUrl.substring(imageUrl.lastIndexOf("/") + 1)
+//    file_Name = file_Name.substring(0, file_Name.lastIndexOf("."))
+//    val fileFormat = OpenDL18.fileFormat(imageUrl)
+//    fileDir + file_Name + fileFormat
+//  }
 }
