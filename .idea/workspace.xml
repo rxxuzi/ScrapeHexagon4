@@ -14,13 +14,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7193e024-e581-4dd5-9131-8b737b89202c" name="変更" comment="Hexagon">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/BASE.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/URL.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/gui.png" beforeDir="false" afterPath="$PROJECT_DIR$/docs/gui.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/java/crawler/OpenHTML.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/crawler/OpenHTML.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scala/_base18/OpenDL18.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/scala/_base18/OpenDL18.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scala/_base18/OpenMg.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/scala/_base18/OpenMg.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/Run-CommandLine/RunByCommandLine.jar" beforeDir="false" afterPath="$PROJECT_DIR$/run/Run-CommandLine/RunByCommandLine.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/Run-ui/ScrapeHexagon4.jar" beforeDir="false" afterPath="$PROJECT_DIR$/run/Run-ui/ScrapeHexagon4.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +111,7 @@
       <recent name="crawler" />
     </key>
   </component>
-  <component name="RunManager" selected="アプリケーション.OpenMg">
+  <component name="RunManager" selected="アプリケーション.Main">
     <configuration name="ErrorTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="error.ErrorTest" />
       <module name="ScrapeHexagon4" />
@@ -195,9 +193,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="アプリケーション.Main" />
         <item itemvalue="アプリケーション.OpenMg" />
         <item itemvalue="Shell Script.DeletePics.sh" />
-        <item itemvalue="アプリケーション.Main" />
         <item itemvalue="アプリケーション.FIS" />
         <item itemvalue="アプリケーション.ErrorTest" />
       </list>
@@ -227,7 +225,8 @@
       <workItem from="1692096966721" duration="20991000" />
       <workItem from="1692122108664" duration="4495000" />
       <workItem from="1692169828576" duration="114000" />
-      <workItem from="1692319159588" duration="1425000" />
+      <workItem from="1692319159588" duration="2106000" />
+      <workItem from="1693248287791" duration="3036000" />
     </task>
     <task id="LOCAL-00001" summary="Hexagon">
       <created>1689950953361</created>
@@ -524,7 +523,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692158120956</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Hexagon">
+      <option name="closed" value="true" />
+      <created>1692323764577</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1692323764577</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

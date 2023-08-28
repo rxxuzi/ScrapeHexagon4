@@ -1,0 +1,22 @@
+{
+  "0" : {
+    "url" : "https://danbooru.donmai.us/",
+    "preview-class" : "post-preview-link",
+    "src-id" : "image"
+  },
+  "1" : {
+    "url" : "https://safebooru.donmai.us/",
+    "preview-class" : "post-preview-link",
+    "src-id" : "image"
+  },
+  "2" : {
+    "url" : "https://gelbooru.com/index.php?page=post&s=list&tags=",
+    "preview-class" : "thumbnail-preview",
+    "src-id" : "image"
+  },
+  "3" : {
+    "url" : "https://rule34.xxx/index.php?page=post&s=list&tags=",
+    "preview-class" : "thumb",
+    "src-id" : "image"
+  }
+}
